@@ -13,8 +13,10 @@ public class BibliotecaApp {
         bookList.add(book);
 
         ArrayList<AppMenuItem> theMenu = new ArrayList<AppMenuItem>();
-        AppMenuItem menuItem = new AppMenuItem("1", "List Books");
-        theMenu.add(menuItem);
+        AppMenuItem listBooks = new AppMenuItem("1", "List Books");
+        AppMenuItem quitApp = new AppMenuItem("0", "Quit");
+        theMenu.add(listBooks);
+        theMenu.add(quitApp);
 
         System.out.println(displayMenuGreeting());
         displayTheMenu(theMenu);
@@ -24,11 +26,9 @@ public class BibliotecaApp {
 
     public static void menuSelect(ArrayList<BookDetails> bookList) {
         int menuSelection = readInput("Select an option, please: ");
-        int menuOptions = bookList.size();
-        if (menuSelection > menuOptions) {
-            System.out.print("Select a valid option!");
-        } else {
+        while (menuSelection != 0) {
             System.out.print(displayBookList(bookList));
+            menuSelection = readInput("Select an option, please: ");
         }
     }
 
