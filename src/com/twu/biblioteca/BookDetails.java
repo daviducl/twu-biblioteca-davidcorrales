@@ -8,10 +8,6 @@ public class BookDetails {
     private String bookAuthor;
     private String bookYear;
 
-    public BookDetails() {
-        bookTitle = bookAuthor = bookYear = null;
-    }
-
     public BookDetails(String aTitle, String anAuthor, String aYear) {
         bookTitle = aTitle;
         bookAuthor = anAuthor;
@@ -26,7 +22,7 @@ public class BookDetails {
     public String getBookYear() { return bookYear; }
 
     public String toString() {
-        return "\"" + bookTitle + "\" (" + bookYear + ") by " + bookAuthor + "\n\n";
+        return "\"" + bookTitle + "\" (" + bookYear + ") by " + bookAuthor + "\n";
     }
 
 }

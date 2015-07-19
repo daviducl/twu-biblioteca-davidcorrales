@@ -11,7 +11,7 @@ import static org.junit.Assert.assertNotNull;
 public class ExampleTest {
 
     @Test
-    public void menuGreetingDisplays() {
+    public void mainGreetingDisplays() {
         BibliotecaApp biblioteca = new BibliotecaApp();
 
         assertEquals("Menu not displayed properly", "Welcome to the Biblioteca", biblioteca.displayMenuGreeting());
@@ -33,5 +33,12 @@ public class ExampleTest {
         BookDetails book = new BookDetails("Inferno", "Dan Brown", "2013");
 
         assertEquals("Book details not showing", "\"Inferno\" (2013) by Dan Brown\n", book.toString());
+    }
+
+    @Test
+    public void menuItemDisplays() {
+        AppMenuItem menuItem = new AppMenuItem("1", "List Books");
+
+        assertEquals("Main Menu not displaying properly", "1. List Books", menuItem.toString());
     }
 }
