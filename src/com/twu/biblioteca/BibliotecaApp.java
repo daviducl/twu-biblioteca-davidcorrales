@@ -18,12 +18,12 @@ public class BibliotecaApp {
 
         System.out.println(displayMenuGreeting());
         displayTheMenu(theMenu);
-        int menuSelection = Integer.parseInt(readInput("Select an option, please: "));
-        menuSelect(bookList, menuSelection);
+        menuSelect(bookList);
 
     }
 
-    public static void menuSelect(ArrayList<BookDetails> bookList, int menuSelection) {
+    public static void menuSelect(ArrayList<BookDetails> bookList) {
+        int menuSelection = readInput("Select an option, please: ");
         int menuOptions = bookList.size();
         if (menuSelection > menuOptions) {
             System.out.print("Select a valid option!");
@@ -50,15 +50,14 @@ public class BibliotecaApp {
         return books;
     }
 
-    public static String readInput(String prompt) {
-        String inputLine = null;
+    public static int readInput(String prompt) {
+        int inputLine = -1;
         System.out.print(prompt);
         try {
             BufferedReader is = new BufferedReader(new InputStreamReader(System.in));
-            inputLine = is.readLine();
-            if (inputLine.length() == 0) return null;
+            inputLine = Integer.parseInt(is.readLine());
         } catch (IOException e) {
-            System.out.println("Select a valid option!");
+            System.err.println("Select a valid option!");
         }
         return inputLine;
     }
