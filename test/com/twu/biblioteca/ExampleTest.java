@@ -14,7 +14,7 @@ public class ExampleTest {
     public void mainGreetingDisplays() {
         BibliotecaApp biblioteca = new BibliotecaApp();
 
-        assertEquals("Menu not displayed properly", "Welcome to the Biblioteca", biblioteca.displayMenuGreeting());
+        assertEquals("Menu not displayed properly", "Welcome to the Biblioteca\n", biblioteca.displayMenuGreeting());
     }
 
     @Test
@@ -25,7 +25,7 @@ public class ExampleTest {
         BookDetails book = new BookDetails("Inferno", "Dan Brown", "2013");
         bookList.add(book);
 
-        assertNotNull("Books not displaying properly", biblioteca.displayBookList(bookList));
+        assertEquals("Books not displaying properly", "These are our books:\n\"Inferno\" (2013) by Dan Brown\n", biblioteca.displayBookList(bookList));
     }
 
     @Test
@@ -41,4 +41,15 @@ public class ExampleTest {
 
         assertEquals("Main Menu not displaying properly", "1. List Books", menuItem.toString());
     }
+
+//    @Test
+//    public void menuOptionSelectedIsInvalid() {
+//        BibliotecaApp biblioteca = new BibliotecaApp();
+//        ArrayList<BookDetails> bookList = new ArrayList<BookDetails>();
+//
+//        BookDetails book = new BookDetails("Inferno", "Dan Brown", "2013");
+//        bookList.add(book);
+//
+//        assertEquals("Invalid selection not working", "Select a valid option!", biblioteca.menuSelect(bookList, -1));
+//    }
 }
