@@ -14,7 +14,7 @@ public class BookLists {
         BookDetails infernoBook = new BookDetails("Inferno", "Dan Brown", "2013");
         BookDetails vinciBook = new BookDetails("The Da Vinci Code", "Dan Brown", "2013");
         allBooks.add(infernoBook);
-        allBooks.add(vinciBook);
+        //allBooks.add(vinciBook);
         availableBooks = allBooks;
     }
 

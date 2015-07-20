@@ -8,7 +8,7 @@ public class QuitMenuItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
-    public String menuActions() {
+    public String menuActions(BookLists theBookLists) {
         return "Thank you for using the Biblioteca\n";
     }
 

@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
+        BookLists theBookLists = new BookLists();
         ArrayList<AppMenuItem> theMenu = new ArrayList<AppMenuItem>();
         AppMenuItem listBooks = new ListBooksItem("1", "List Books");
         AppMenuItem quitApp = new QuitMenuItem("0", "Quit");
@@ -22,16 +23,15 @@ public class BibliotecaApp {
         displayTheMenu(theMenu);
         int menuSelection = readInput("Select an option, please: ");
         while (menuSelection != 0) {
-            System.out.print(menuSelector(theMenu, menuSelection));
+            System.out.print(menuSelector(theMenu, menuSelection, theBookLists));
             menuSelection = readInput("Select an option, please: ");
         }
-        System.out.print(theMenu.get(theMenu.indexOf(quitApp)).menuActions());
-        //System.out.print(menuSelector(theMenu, menuSelection));
+        System.out.print(theMenu.get(theMenu.indexOf(quitApp)).menuActions(theBookLists));
     }
 
-    public static String menuSelector(ArrayList<AppMenuItem> theMenu, int menuSelection) {
+    public static String menuSelector(ArrayList<AppMenuItem> theMenu, int menuSelection, BookLists theBookLists) {
         if ((menuSelection > theMenu.size() - 1 || (menuSelection < 0))) { return "Select a valid option!\n"; }
-        return theMenu.get(menuSelection).menuActions();
+        return theMenu.get(menuSelection).menuActions(theBookLists);
     }
 
     public static String displayMenuGreeting() {

@@ -25,7 +25,7 @@ public class AppMenuItem {
         return optionNumber + ". " + optionText;
     }
 
-    public String menuActions() {
+    public String menuActions(BookLists theBookLists) {
         return "";
     }
 }
