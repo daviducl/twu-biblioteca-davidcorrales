@@ -30,7 +30,7 @@ public class BibliotecaApp {
     }
 
     public static String menuSelector(ArrayList<AppMenuItem> theMenu, int menuSelection) {
-        if (menuSelection > theMenu.size() - 1) { return "Select a valid option!\n"; }
+        if ((menuSelection > theMenu.size() - 1 || (menuSelection < 0))) { return "Select a valid option!\n"; }
         return theMenu.get(menuSelection).menuActions();
     }
 
