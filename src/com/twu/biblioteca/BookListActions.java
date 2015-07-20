@@ -5,12 +5,12 @@ import java.util.ArrayList;
 /**
  * Created by mcorrales on 7/19/15.
  */
-public class BookLists {
+public class BookListActions {
     ArrayList<BookDetails> allBooks = new ArrayList<BookDetails>();
     ArrayList<BookDetails> checkedOutBooks = new ArrayList<BookDetails>();
     ArrayList<BookDetails> availableBooks = new ArrayList<BookDetails>();
 
-    public BookLists() {
+    public BookListActions() {
         BookDetails infernoBook = new BookDetails("Inferno", "Dan Brown", "2013");
         BookDetails vinciBook = new BookDetails("The Da Vinci Code", "Dan Brown", "2013");
         allBooks.add(infernoBook);

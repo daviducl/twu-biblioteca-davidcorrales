@@ -57,7 +57,7 @@ public class ExampleTest {
 
 //    @Test
 //    public void bookCheckoutSuccessful() {
-//        BookLists theLists = new BookLists();
+//        BookListActions theLists = new BookListActions();
 //        BookDetails vinciBook = new BookDetails("The Da Vinci Code", "Dan Brown", "2003");
 //
 //        theLists.checkOut("The Da Vinci Code");
