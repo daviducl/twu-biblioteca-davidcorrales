@@ -23,8 +23,12 @@ public class ExampleTest {
     public void bookListDisplays() {
         ListBooksItem listBooksItem = new ListBooksItem("", "");
         BookLists theBookLists = new BookLists();
+        String test = "These are our books:\n";
+        for (BookDetails theBook : theBookLists.allBooks) {
+            test += theBook.toString();
+        }
 
-        assertEquals("Books not displaying properly", "These are our books:\n\"Inferno\" (2013) by Dan Brown\n", listBooksItem.displayBookList(theBookLists));
+        assertEquals("Books not displaying properly", test, listBooksItem.displayBookList(theBookLists));
     }
 
     @Test
@@ -56,10 +60,20 @@ public class ExampleTest {
     @Test
     public void bookCheckoutSuccessful() {
         BookLists theLists = new BookLists();
-        BookDetails vinciBook = new BookDetails("The Da Vinci Code", "Dan Brown", "2003");
+        BookDetails vinciBook = new BookDetails("Inferno", "Dan Brown", "2013");
 
-        theLists.checkOut("The Da Vinci Code");
+        theLists.checkOut("Inferno");
 
         assertFalse("Book Checkout Unsuccessful", theLists.availableBooks.contains(vinciBook));
+    }
+
+    @Test
+    public void bookReturnSuccessful() {
+        BookLists theLists = new BookLists();
+        BookDetails vinciBook = new BookDetails("The Da Vinci Code", "Dan Brown", "2003");
+
+        theLists.checkIn("The Da Vinci Code");
+
+        assertFalse("Book Return Unsuccessful", theLists.checkedOutBooks.contains(vinciBook));
     }
 }

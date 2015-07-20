@@ -14,7 +14,7 @@ public class BookLists {
         BookDetails infernoBook = new BookDetails("Inferno", "Dan Brown", "2013");
         BookDetails vinciBook = new BookDetails("The Da Vinci Code", "Dan Brown", "2013");
         allBooks.add(infernoBook);
-        //allBooks.add(vinciBook);
+        allBooks.add(vinciBook);
         availableBooks = allBooks;
     }
 
@@ -25,6 +25,16 @@ public class BookLists {
             System.out.print("Thank you! Enjoy the book\n");
         } else {
             System.out.print("That book is not available");
+        }
+    }
+
+    public void checkIn(String aTitle) {
+        if (checkIfBookOnList(checkedOutBooks, aTitle)) {
+            checkedOutBooks.remove(getBookByTitle(aTitle));
+            availableBooks.add(getBookByTitle(aTitle));
+            System.out.print("Thank you for returning the book\n");
+        } else {
+            System.out.print("This is not a valid book to return");
         }
     }
 

@@ -10,9 +10,11 @@ public class BibliotecaApp {
         AppMenuItem listBooks = new ListBooksItem("1", "List Books");
         AppMenuItem quitApp = new QuitMenuItem("0", "Quit");
         AppMenuItem checkOutBook = new CheckOutBookItem("2", "Checkout Book");
+        AppMenuItem checkInBook = new CheckInBookItem("3", "Check In Book");
         theMenu.add(quitApp);
         theMenu.add(listBooks);
         theMenu.add(checkOutBook);
+        theMenu.add(checkInBook);
 
 
         System.out.println(displayMenuGreeting());

@@ -18,7 +18,7 @@ public class ListBooksItem extends AppMenuItem {
     }
 
     public static String displayBookList(BookLists theBookLists) {
-        String books = "These are all of our books:\n";
+        String books = "These are our books:\n";
         for (BookDetails bookDetails : theBookLists.availableBooks) {
             books += bookDetails.toString();
         }
