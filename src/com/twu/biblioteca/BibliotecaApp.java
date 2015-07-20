@@ -27,20 +27,21 @@ public class BibliotecaApp {
     }
 
     public static String menuSelector(ArrayList<AppMenuItem> theMenu, int menuSelection) {
-        String menuString = "";
-        int menuOptions = theMenu.size();
-        if ((menuSelection < 0) || (menuSelection > menuOptions)) {
-            System.out.println("Select a valid option!");
-            menuSelector(theMenu, readInput("Select an option, please: "));
-            return "";
-        }
-        while (menuSelection != 0 && menuSelection < menuOptions) {
-            menuString = theMenu.get(menuSelection).menuActions();
-            System.out.print(menuString);
-            menuSelection = readInput("Select an option, please: ");
-        }
-        menuString = theMenu.get(0).menuActions();
-        return menuString;
+//        String menuString = "";
+//        int menuOptions = theMenu.size();
+//        if ((menuSelection < 0) || (menuSelection > menuOptions)) {
+//            System.out.println("Select a valid option!");
+//            menuSelector(theMenu, readInput("Select an option, please: "));
+//            return "";
+//        }
+//        while (menuSelection != 0 && menuSelection < menuOptions) {
+//            menuString = theMenu.get(menuSelection).menuActions();
+//            System.out.print(menuString);
+//            menuSelection = readInput("Select an option, please: ");
+//        }
+//        //menuString = theMenu.get(0).menuActions();
+//        return menuString;
+        return "";
     }
 
     public static String displayMenuGreeting() {
