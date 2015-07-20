@@ -15,8 +15,8 @@ public class BibliotecaApp {
         ArrayList<AppMenuItem> theMenu = new ArrayList<AppMenuItem>();
         AppMenuItem listBooks = new ListBooksItem("1", "List Books");
         AppMenuItem quitApp = new QuitMenuItem("0", "Quit");
-        theMenu.add(listBooks);
         theMenu.add(quitApp);
+        theMenu.add(listBooks);
 
 
         System.out.println(displayMenuGreeting());
@@ -36,8 +36,10 @@ public class BibliotecaApp {
         }
         while (menuSelection != 0 && menuSelection < menuOptions) {
             menuString = theMenu.get(menuSelection).menuActions();
+            System.out.print(menuString);
             menuSelection = readInput("Select an option, please: ");
         }
+        menuString = theMenu.get(0).menuActions();
         return menuString;
     }
 

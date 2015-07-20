@@ -5,10 +5,14 @@ package com.twu.biblioteca;
  */
 public class QuitMenuItem extends AppMenuItem {
     public QuitMenuItem(String aNumber, String theText) {
-        super();
+        super(aNumber, theText);
     }
 
     public String menuActions() {
-        return "Thank you for using the Biblioteca";
+        return "Thank you for using the Biblioteca\n";
+    }
+
+    public String toString() {
+        return super.toString();
     }
 }
