@@ -13,23 +13,32 @@ public class BibliotecaApp {
         bookList.add(book);
 
         ArrayList<AppMenuItem> theMenu = new ArrayList<AppMenuItem>();
-        AppMenuItem listBooks = new AppMenuItem("1", "List Books");
-        AppMenuItem quitApp = new AppMenuItem("0", "Quit");
+        AppMenuItem listBooks = new ListBooksItem("1", "List Books");
+        AppMenuItem quitApp = new QuitMenuItem("0", "Quit");
         theMenu.add(listBooks);
         theMenu.add(quitApp);
 
+
         System.out.println(displayMenuGreeting());
         displayTheMenu(theMenu);
-        menuSelect(bookList);
+        int menuSelection = readInput("Select an option, please: ");
+        System.out.print(menuSelector(theMenu, menuSelection));
 
     }
 
-    public static void menuSelect(ArrayList<BookDetails> bookList) {
-        int menuSelection = readInput("Select an option, please: ");
-        while (menuSelection != 0) {
-            System.out.print(displayBookList(bookList));
+    public static String menuSelector(ArrayList<AppMenuItem> theMenu, int menuSelection) {
+        String menuString = "";
+        int menuOptions = theMenu.size();
+        if ((menuSelection < 0) || (menuSelection > menuOptions)) {
+            System.out.println("Select a valid option!");
+            menuSelector(theMenu, readInput("Select an option, please: "));
+            return "";
+        }
+        while (menuSelection != 0 && menuSelection < menuOptions) {
+            menuString = theMenu.get(menuSelection).menuActions();
             menuSelection = readInput("Select an option, please: ");
         }
+        return menuString;
     }
 
     public static String displayMenuGreeting() {

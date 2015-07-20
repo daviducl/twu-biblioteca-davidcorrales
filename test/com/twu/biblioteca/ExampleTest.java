@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 import org.junit.experimental.theories.suppliers.TestedOn;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
@@ -42,14 +43,14 @@ public class ExampleTest {
         assertEquals("Main Menu not displaying properly", "1. List Books", menuItem.toString());
     }
 
-//    @Test
-//    public void menuOptionSelectedIsInvalid() {
-//        BibliotecaApp biblioteca = new BibliotecaApp();
-//        ArrayList<BookDetails> bookList = new ArrayList<BookDetails>();
-//
-//        BookDetails book = new BookDetails("Inferno", "Dan Brown", "2013");
-//        bookList.add(book);
-//
-//        assertEquals("Invalid selection not working", "Select a valid option!", biblioteca.menuSelect(bookList, -1));
-//    }
+    @Test
+    public void menuOptionSelectedIsInvalid() {
+        BibliotecaApp biblioteca = new BibliotecaApp();
+        ArrayList<AppMenuItem> theMenu = new ArrayList<AppMenuItem>();
+
+        AppMenuItem theItem = new AppMenuItem("1", "");
+        theMenu.add(theItem);
+
+        assertEquals("Invalid selection not working", "Select a valid option!", biblioteca.menuSelector(theMenu, -1));
+    }
 }

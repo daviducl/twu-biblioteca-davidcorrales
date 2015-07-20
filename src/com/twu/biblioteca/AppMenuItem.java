@@ -7,6 +7,9 @@ public class AppMenuItem {
     private String optionNumber;
     private String optionText;
 
+    public AppMenuItem() {
+        optionNumber = optionText = "";
+    }
     public AppMenuItem(String aNumber, String theText) {
         optionNumber = aNumber;
         optionText = theText;
@@ -20,5 +23,9 @@ public class AppMenuItem {
 
     public String toString() {
         return optionNumber + ". " + optionText;
+    }
+
+    public String menuActions() {
+        return "";
     }
 }
