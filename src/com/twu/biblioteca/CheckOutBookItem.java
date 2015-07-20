@@ -8,7 +8,7 @@ public class CheckOutBookItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
-    public String menuActions() {
+    public String menuActions(BookLists theLists) {
         return "CheckOut actions";
     }
 
