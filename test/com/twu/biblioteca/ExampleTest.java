@@ -55,13 +55,13 @@ public class ExampleTest {
         assertEquals("Invalid selection not working", "Select a valid option!\n", biblioteca.menuSelector(theMenu, 2));
     }
 
-//    @Test
-//    public void bookCheckoutSuccessful() {
-//        BookListActions theLists = new BookListActions();
-//        BookDetails vinciBook = new BookDetails("The Da Vinci Code", "Dan Brown", "2003");
-//
-//        theLists.checkOut("The Da Vinci Code");
-//
-//        assertFalse("Book Checkout Unsuccessful", theLists.availableBooks.contains(vinciBook));
-//    }
+    @Test
+    public void bookCheckoutSuccessful() {
+        BookLists theLists = new BookLists();
+        BookDetails vinciBook = new BookDetails("The Da Vinci Code", "Dan Brown", "2003");
+
+        theLists.checkOut("The Da Vinci Code");
+
+        assertFalse("Book Checkout Unsuccessful", theLists.availableBooks.contains(vinciBook));
+    }
 }
