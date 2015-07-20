@@ -20,13 +20,13 @@ public class ExampleTest {
 
     @Test
     public void bookListDisplays() {
-        BibliotecaApp biblioteca = new BibliotecaApp();
+        ListBooksItem listBooksItem = new ListBooksItem("", "");
         ArrayList<BookDetails> bookList = new ArrayList<BookDetails>();
 
         BookDetails book = new BookDetails("Inferno", "Dan Brown", "2013");
         bookList.add(book);
 
-        assertEquals("Books not displaying properly", "These are our books:\n\"Inferno\" (2013) by Dan Brown\n", biblioteca.displayBookList(bookList));
+        assertEquals("Books not displaying properly", "These are our books:\n\"Inferno\" (2013) by Dan Brown\n", listBooksItem.displayBookList(bookList));
     }
 
     @Test
@@ -51,6 +51,6 @@ public class ExampleTest {
         AppMenuItem theItem = new AppMenuItem("1", "");
         theMenu.add(theItem);
 
-        assertEquals("Invalid selection not working", "Select a valid option!", biblioteca.menuSelector(theMenu, -1));
+        assertEquals("Invalid selection not working", "Select a valid option!\n", biblioteca.menuSelector(theMenu, 2));
     }
 }
