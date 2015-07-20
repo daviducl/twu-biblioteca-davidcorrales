@@ -7,6 +7,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 public class ExampleTest {
@@ -53,4 +54,14 @@ public class ExampleTest {
 
         assertEquals("Invalid selection not working", "Select a valid option!\n", biblioteca.menuSelector(theMenu, 2));
     }
+
+//    @Test
+//    public void bookCheckoutSuccessful() {
+//        BookLists theLists = new BookLists();
+//        BookDetails vinciBook = new BookDetails("The Da Vinci Code", "Dan Brown", "2003");
+//
+//        theLists.checkOut("The Da Vinci Code");
+//
+//        assertFalse("Book Checkout Unsuccessful", theLists.availableBooks.contains(vinciBook));
+//    }
 }
