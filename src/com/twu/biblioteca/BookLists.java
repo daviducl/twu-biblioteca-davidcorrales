@@ -34,7 +34,7 @@ public class BookLists {
             availableBooks.add(getBookByTitle(aTitle));
             System.out.print("Thank you for returning the book\n");
         } else {
-            System.out.print("This is not a valid book to return");
+            System.out.print("This is not a valid book to return\n");
         }
     }
 
