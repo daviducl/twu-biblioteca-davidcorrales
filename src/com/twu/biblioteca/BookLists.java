@@ -22,7 +22,7 @@ public class BookLists {
         if (checkIfBookOnList(availableBooks, aTitle)) {
             checkedOutBooks.add(getBookByTitle(aTitle));
             availableBooks.remove(getBookByTitle(aTitle));
-            System.out.print("Thank you! Enjoy the book");
+            System.out.print("Thank you! Enjoy the book\n");
         } else {
             System.out.print("That book is not available");
         }

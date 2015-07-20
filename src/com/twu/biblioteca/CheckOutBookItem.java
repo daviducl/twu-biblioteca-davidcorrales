@@ -9,7 +9,8 @@ public class CheckOutBookItem extends AppMenuItem {
     }
 
     public String menuActions(BookLists theLists) {
-        return "CheckOut actions";
+        theLists.checkOut(InputReader.readString("Type a title: "));
+        return "\n";
     }
 
     public String toString() {

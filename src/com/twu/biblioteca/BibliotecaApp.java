@@ -1,10 +1,6 @@
 package com.twu.biblioteca;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class BibliotecaApp {
 
@@ -21,10 +17,10 @@ public class BibliotecaApp {
 
         System.out.println(displayMenuGreeting());
         displayTheMenu(theMenu);
-        int menuSelection = readInput("Select an option, please: ");
+        int menuSelection = InputReader.readInteger("Select an option, please: ");
         while (menuSelection != 0) {
             System.out.print(menuSelector(theMenu, menuSelection, theBookLists));
-            menuSelection = readInput("Select an option, please: ");
+            menuSelection = InputReader.readInteger("Select an option, please: ");
         }
         System.out.print(theMenu.get(theMenu.indexOf(quitApp)).menuActions(theBookLists));
     }
@@ -44,15 +40,4 @@ public class BibliotecaApp {
         }
     }
 
-    public static int readInput(String prompt) {
-        int inputLine = -1;
-        System.out.print(prompt);
-        try {
-            BufferedReader is = new BufferedReader(new InputStreamReader(System.in));
-            inputLine = Integer.parseInt(is.readLine());
-        } catch (IOException e) {
-            System.err.println("Select a valid option!");
-        }
-        return inputLine;
-    }
 }
