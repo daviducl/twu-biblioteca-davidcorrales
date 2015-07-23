@@ -6,6 +6,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         BookLists theBookLists = new BookLists();
+        MovieLists theMovieLists = new MovieLists();
         ArrayList<AppMenuItem> theMenu = new ArrayList<AppMenuItem>();
         AppMenuItem listBooks = new ListBooksItem("1", "List Books");
         AppMenuItem quitApp = new QuitMenuItem("0", "Quit");
