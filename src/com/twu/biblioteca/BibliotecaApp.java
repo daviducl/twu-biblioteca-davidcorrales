@@ -11,13 +11,14 @@ public class BibliotecaApp {
         AppMenuItem quitApp = new QuitMenuItem("0", "Quit");
         AppMenuItem checkOutBook = new CheckOutBookItem("2", "Checkout Book");
         AppMenuItem checkInBook = new CheckInBookItem("3", "Check In Book");
-        AppMenuItem listMovies = new ListBooksItem("4", "List Movies");
+        AppMenuItem listMovies = new ListMoviesItem("4", "List Movies");
         theMenu.add(quitApp);
         theMenu.add(listBooks);
         theMenu.add(checkOutBook);
         theMenu.add(checkInBook);
         theMenu.add(listMovies);
 
+        System.out.print(theLists.allMovies.get(0).toString());
         System.out.println(displayMenuGreeting());
         displayTheMenu(theMenu);
         int menuSelection = InputReader.readInteger("Select an option, please: ");

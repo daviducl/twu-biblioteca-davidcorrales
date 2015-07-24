@@ -15,7 +15,7 @@ public class ItemLists {
     ArrayList<Movie> availableMovies = new ArrayList<Movie>();
 
     public ItemLists() {
-        Movie angelsMovie = new Movie("Angels and Demons", "Dan Brown", "2009", "4");
+        Movie angelsMovie = new Movie("Angels and Demons", "Ron Howard", "2009", "4");
         Movie looperMovie = new Movie("Looper", "Rian Johnson", "2012", "3");
         allMovies.add(angelsMovie);
         allMovies.add(looperMovie);
@@ -50,7 +50,7 @@ public class ItemLists {
 
     public boolean checkIfMovieOnList(ArrayList<Movie> theList, String aTitle){
         for (Movie movie : theList) {
-            if (Movie.getMovieTitle().equals(aTitle)) {
+            if (movie.getMovieTitle().equals(aTitle)) {
                 return true;
             }
         }
@@ -59,7 +59,7 @@ public class ItemLists {
 
     public Movie getMovieByTitle(String aTitle) {
         for (Movie movie : allMovies) {
-            if (Movie.getMovieTitle().equals(aTitle)) {
+            if (movie.getMovieTitle().equals(aTitle)) {
                 return movie;
             }
         }
