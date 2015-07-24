@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by mcorrales on 7/19/15.
  */
-public class BookLists {
+public class BookLists extends ItemLists {
     ArrayList<Book> allBooks = new ArrayList<Book>();
     ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
     ArrayList<Book> availableBooks = new ArrayList<Book>();

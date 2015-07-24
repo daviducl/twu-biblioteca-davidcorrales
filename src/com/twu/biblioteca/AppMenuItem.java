@@ -15,17 +15,11 @@ public class AppMenuItem {
         optionText = theText;
     }
 
-    public void setOptionNumber(String aNumber) { optionNumber = aNumber; }
-    public void setOptionText(String theText) { optionText = theText; }
-
-    public String getOptionNumber() { return optionNumber; }
-    public String getOptionText() { return optionText; }
-
     public String toString() {
         return optionNumber + ". " + optionText;
     }
 
-    public String menuActions(BookLists theBookLists) {
+    public String menuActions(ItemLists theLists) {
         return "";
     }
 }

@@ -8,19 +8,19 @@ public class ListMoviesItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
-    public String menuActions(BookLists theBookLists) {
-        return displayMovieList(theBookLists);
+    public String menuActions(MovieLists theMovieLists) {
+        return displayMovieList(theMovieLists);
     }
 
     public String toString() {
         return super.toString();
     }
 
-    public static String displayMovieList(BookLists theBookLists) {
-        String books = "These are our books:\n";
-        for (Book bookDetails : theBookLists.availableBooks) {
-            books += bookDetails.toString();
+    public static String displayMovieList(MovieLists theLists) {
+        String movies = "These are our movies:\n";
+        for (Movie movie : theLists.availableMovies) {
+            movies += movie.toString();
         }
-        return books;
+        return movies;
     }
 }

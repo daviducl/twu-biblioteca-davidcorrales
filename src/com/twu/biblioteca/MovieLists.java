@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by mcorrales on 7/23/15.
  */
-public class MovieLists {
+public class MovieLists extends ItemLists {
     ArrayList<Movie> allMovies = new ArrayList<Movie>();
     ArrayList<Movie> checkedOutMovies = new ArrayList<Movie>();
     ArrayList<Movie> availableMovies = new ArrayList<Movie>();
