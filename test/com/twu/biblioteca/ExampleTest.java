@@ -70,7 +70,7 @@ public class ExampleTest {
         BookLists theLists = new BookLists();
         Book vinciBook = new Book("The Da Vinci Code", "Dan Brown", "2003");
 
-        theLists.checkIn("The Da Vinci Code");
+        theLists.checkInMovie("The Da Vinci Code");
 
         assertFalse("Book Return Unsuccessful", theLists.checkedOutBooks.contains(vinciBook));
     }

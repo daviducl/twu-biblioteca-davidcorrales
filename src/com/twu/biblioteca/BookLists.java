@@ -28,7 +28,7 @@ public class BookLists extends ItemLists {
         }
     }
 
-    public void checkIn(String aTitle) {
+    public void checkInMovie(String aTitle) {
         if (checkIfBookOnList(checkedOutBooks, aTitle)) {
             checkedOutBooks.remove(getBookByTitle(aTitle));
             availableBooks.add(getBookByTitle(aTitle));

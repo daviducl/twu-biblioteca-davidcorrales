@@ -20,7 +20,7 @@ public class Movie {
     public void setMovieYear(String aYear) { movieYear = aYear; }
     public void setMovieRating(String aRating) { movieRating = aRating; }
 
-    public String getMovieTitle() { return movieTitle; }
+    public static String getMovieTitle() { return movieTitle; }
     public String getMovieDirector() { return movieDirector; }
     public String getMovieYear() { return movieYear; }
     public String getMovieRating() {
