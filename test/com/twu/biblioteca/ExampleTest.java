@@ -88,4 +88,14 @@ public class ExampleTest {
 
         assertEquals("Movies not displaying properly", test, listMoviesItem.displayMovieList(theLists));
     }
+
+    @Test
+    public void movieCheckoutSuccessful() {
+        Movie vinciBook = new Movie("Inferno", "Dan Brown", "2013", "4");
+        theLists.availableMovies.add(vinciBook);
+
+        theLists.checkOutMovie("Inferno");
+
+        assertFalse("Book Checkout Unsuccessful", theLists.availableMovies.contains(vinciBook));
+    }
 }

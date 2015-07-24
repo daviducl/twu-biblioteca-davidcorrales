@@ -12,11 +12,13 @@ public class BibliotecaApp {
         AppMenuItem checkOutBook = new CheckOutBookItem("2", "Checkout Book");
         AppMenuItem checkInBook = new CheckInBookItem("3", "Check In Book");
         AppMenuItem listMovies = new ListMoviesItem("4", "List Movies");
+        AppMenuItem checkOutMovie = new CheckOutMovieItem("5", "Checkout Movie");
         theMenu.add(quitApp);
         theMenu.add(listBooks);
         theMenu.add(checkOutBook);
         theMenu.add(checkInBook);
         theMenu.add(listMovies);
+        theMenu.add(checkOutMovie);
 
         System.out.print(theLists.allMovies.get(0).toString());
         System.out.println(displayMenuGreeting());
