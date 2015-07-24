@@ -6,13 +6,13 @@ import java.util.ArrayList;
  * Created by mcorrales on 7/19/15.
  */
 public class BookLists {
-    ArrayList<BookDetails> allBooks = new ArrayList<BookDetails>();
-    ArrayList<BookDetails> checkedOutBooks = new ArrayList<BookDetails>();
-    ArrayList<BookDetails> availableBooks = new ArrayList<BookDetails>();
+    ArrayList<Book> allBooks = new ArrayList<Book>();
+    ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
+    ArrayList<Book> availableBooks = new ArrayList<Book>();
 
     public BookLists() {
-        BookDetails infernoBook = new BookDetails("Inferno", "Dan Brown", "2013");
-        BookDetails vinciBook = new BookDetails("The Da Vinci Code", "Dan Brown", "2013");
+        Book infernoBook = new Book("Inferno", "Dan Brown", "2013");
+        Book vinciBook = new Book("The Da Vinci Code", "Dan Brown", "2013");
         allBooks.add(infernoBook);
         allBooks.add(vinciBook);
         availableBooks = allBooks;
@@ -38,8 +38,8 @@ public class BookLists {
         }
     }
 
-    public boolean checkIfBookOnList(ArrayList<BookDetails> theList, String aTitle){
-        for (BookDetails book : theList) {
+    public boolean checkIfBookOnList(ArrayList<Book> theList, String aTitle){
+        for (Book book : theList) {
             if (book.getBookTitle().equals(aTitle)) {
                 return true;
             }
@@ -47,8 +47,8 @@ public class BookLists {
         return false;
     }
 
-    public BookDetails getBookByTitle(String aTitle) {
-        for (BookDetails book : allBooks) {
+    public Book getBookByTitle(String aTitle) {
+        for (Book book : allBooks) {
             if (book.getBookTitle().equals(aTitle)) {
                 return book;
             }
