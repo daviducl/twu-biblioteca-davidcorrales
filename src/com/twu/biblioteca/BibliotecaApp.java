@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
-        ItemLists theBookLists = new BookLists();
-        ItemLists theMovieLists = new MovieLists();
+        ItemLists theLists = new ItemLists();
         ArrayList<AppMenuItem> theMenu = new ArrayList<AppMenuItem>();
         AppMenuItem listBooks = new ListBooksItem("1", "List Books");
         AppMenuItem quitApp = new QuitMenuItem("0", "Quit");
@@ -23,14 +22,10 @@ public class BibliotecaApp {
         displayTheMenu(theMenu);
         int menuSelection = InputReader.readInteger("Select an option, please: ");
         while (menuSelection != 0) {
-            if (menuSelection > 0 && menuSelection < 4) {
-                System.out.print(menuSelector(theMenu, menuSelection, theBookLists));
-            } else {
-                System.out.print(menuSelector(theMenu, menuSelection, theMovieLists));
-            }
+            System.out.print(menuSelector(theMenu, menuSelection, theLists));
             menuSelection = InputReader.readInteger("Select an option, please: ");
         }
-        System.out.print(theMenu.get(theMenu.indexOf(quitApp)).menuActions(theBookLists));
+        System.out.print(theMenu.get(theMenu.indexOf(quitApp)).menuActions(theLists));
     }
 
     public static String menuSelector(ArrayList<AppMenuItem> theMenu, int menuSelection, ItemLists theLists) {

@@ -8,7 +8,7 @@ public class CheckInBookItem extends AppMenuItem {
         super(aNumber, aTitle);
     }
 
-    public String menuActions(BookLists theLists) {
+    public String menuActions(ItemLists theLists) {
         theLists.checkInMovie(InputReader.readString("Type a title: "));
         return "\n";
     }

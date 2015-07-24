@@ -4,7 +4,7 @@ package com.twu.biblioteca;
  * Created by mcorrales on 7/23/15.
  */
 public class Movie {
-    private String movieTitle;
+    private static String movieTitle;
     private String movieDirector;
     private String movieYear;
     private String movieRating;

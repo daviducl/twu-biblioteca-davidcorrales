@@ -8,15 +8,15 @@ public class ListMoviesItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
-    public String menuActions(MovieLists theMovieLists) {
-        return displayMovieList(theMovieLists);
+    public String menuActions(ItemLists theLists) {
+        return displayMovieList(theLists);
     }
 
     public String toString() {
         return super.toString();
     }
 
-    public static String displayMovieList(MovieLists theLists) {
+    public static String displayMovieList(ItemLists theLists) {
         String movies = "These are our movies:\n";
         for (Movie movie : theLists.availableMovies) {
             movies += movie.toString();

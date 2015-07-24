@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,23 +11,29 @@ import static org.junit.Assert.assertNotNull;
 
 public class ExampleTest {
 
+    private ItemLists theLists;
+    private BibliotecaApp biblioteca;
+    
+    @Before
+    public void setUp() {
+        theLists = new ItemLists();
+        biblioteca = new BibliotecaApp();
+    }
+
     @Test
     public void mainGreetingDisplays() {
-        BibliotecaApp biblioteca = new BibliotecaApp();
-
         assertEquals("Menu not displayed properly", "Welcome to the Biblioteca\n", biblioteca.displayMenuGreeting());
     }
 
     @Test
     public void bookListDisplays() {
         ListBooksItem listBooksItem = new ListBooksItem("", "");
-        BookLists theBookLists = new BookLists();
         String test = "These are our books:\n";
-        for (Book theBook : theBookLists.allBooks) {
+        for (Book theBook : theLists.allBooks) {
             test += theBook.toString();
         }
 
-        assertEquals("Books not displaying properly", test, listBooksItem.displayBookList(theBookLists));
+        assertEquals("Books not displaying properly", test, listBooksItem.displayBookList(theLists));
     }
 
     @Test
@@ -45,29 +52,25 @@ public class ExampleTest {
 
     @Test
     public void menuOptionSelectedIsInvalid() {
-        BibliotecaApp biblioteca = new BibliotecaApp();
         ArrayList<AppMenuItem> theMenu = new ArrayList<AppMenuItem>();
-        BookLists theBookLists = new BookLists();
 
         AppMenuItem theItem = new AppMenuItem("1", "");
         theMenu.add(theItem);
 
-        assertEquals("Invalid selection not working", "Select a valid option!\n", biblioteca.menuSelector(theMenu, 2, theBookLists));
+        assertEquals("Invalid selection not working", "Select a valid option!\n", biblioteca.menuSelector(theMenu, 2, theLists));
     }
 
     @Test
     public void bookCheckoutSuccessful() {
-        BookLists theLists = new BookLists();
         Book vinciBook = new Book("Inferno", "Dan Brown", "2013");
 
-        theLists.checkOut("Inferno");
+        theLists.checkOutBook("Inferno");
 
         assertFalse("Book Checkout Unsuccessful", theLists.availableBooks.contains(vinciBook));
     }
 
     @Test
     public void bookReturnSuccessful() {
-        BookLists theLists = new BookLists();
         Book vinciBook = new Book("The Da Vinci Code", "Dan Brown", "2003");
 
         theLists.checkInMovie("The Da Vinci Code");
@@ -78,12 +81,11 @@ public class ExampleTest {
     @Test
     public void movieListDisplays() {
         ListMoviesItem listMoviesItem = new ListMoviesItem("", "");
-        MovieLists theMovieLists = new MovieLists();
         String test = "These are our movies:\n";
-        for (Movie theMovie : theMovieLists.allMovies) {
+        for (Movie theMovie : theLists.allMovies) {
             test += theMovie.toString();
         }
 
-        assertEquals("Movies not displaying properly", test, listMoviesItem.displayMovieList(theMovieLists));
+        assertEquals("Movies not displaying properly", test, listMoviesItem.displayMovieList(theLists));
     }
 }

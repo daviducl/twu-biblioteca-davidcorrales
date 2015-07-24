@@ -8,15 +8,15 @@ public class ListBooksItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
-    public String menuActions(BookLists theBookLists) {
-        return displayBookList(theBookLists);
+    public String menuActions(ItemLists theLists) {
+        return displayBookList(theLists);
     }
 
     public String toString() {
         return super.toString();
     }
 
-    public static String displayBookList(BookLists theBookLists) {
+    public static String displayBookList(ItemLists theBookLists) {
         String books = "These are our books:\n";
         for (Book book : theBookLists.availableBooks) {
             books += book.toString();
