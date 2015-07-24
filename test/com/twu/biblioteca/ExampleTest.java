@@ -74,16 +74,16 @@ public class ExampleTest {
 
         assertFalse("Book Return Unsuccessful", theLists.checkedOutBooks.contains(vinciBook));
     }
-//
-//    @Test
-//    public void movieListDisplays() {
-//        ListMoviesItem listMoviesItem = new ListMoviesItem();
-//        MovieLists theMovieLists = new MovieLists();
-//        String test = "These are our movies:\n";
-//        for (Book theMovie : theMovieLists.allMovies) {
-//            test += theMovie.toString();
-//        }
-//
-//        assertEquals("Movies not displaying properly", test, listMoviesItem.displayMovieList(theMovieLists));
-//    }
+
+    @Test
+    public void movieListDisplays() {
+        ListMoviesItem listMoviesItem = new ListMoviesItem("", "");
+        MovieLists theMovieLists = new MovieLists();
+        String test = "These are our movies:\n";
+        for (Movie theMovie : theMovieLists.allMovies) {
+            test += theMovie.toString();
+        }
+
+        assertEquals("Movies not displaying properly", test, listMoviesItem.displayMovieList(theMovieLists));
+    }
 }

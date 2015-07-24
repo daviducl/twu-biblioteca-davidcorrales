@@ -12,6 +12,7 @@ public class BibliotecaApp {
         AppMenuItem quitApp = new QuitMenuItem("0", "Quit");
         AppMenuItem checkOutBook = new CheckOutBookItem("2", "Checkout Book");
         AppMenuItem checkInBook = new CheckInBookItem("3", "Check In Book");
+        AppMenuItem listMovies = new ListBooksItem("4", "List Movies");
         theMenu.add(quitApp);
         theMenu.add(listBooks);
         theMenu.add(checkOutBook);
@@ -22,7 +23,12 @@ public class BibliotecaApp {
         displayTheMenu(theMenu);
         int menuSelection = InputReader.readInteger("Select an option, please: ");
         while (menuSelection != 0) {
-            System.out.print(menuSelector(theMenu, menuSelection, theBookLists));
+            if (menuSelection > 0 && menuSelection < 4) {
+                System.out.print(menuSelector(theMenu, menuSelection, theBookLists));
+            }
+            else {
+                System.out.print(menuSelector(theMenu, menuSelection, theMovieLists));
+            }
             menuSelection = InputReader.readInteger("Select an option, please: ");
         }
         System.out.print(theMenu.get(theMenu.indexOf(quitApp)).menuActions(theBookLists));

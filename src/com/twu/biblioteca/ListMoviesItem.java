@@ -9,14 +9,14 @@ public class ListMoviesItem extends AppMenuItem {
     }
 
     public String menuActions(BookLists theBookLists) {
-        return displayBookList(theBookLists);
+        return displayMovieList(theBookLists);
     }
 
     public String toString() {
         return super.toString();
     }
 
-    public static String displayBookList(BookLists theBookLists) {
+    public static String displayMovieList(BookLists theBookLists) {
         String books = "These are our books:\n";
         for (Book bookDetails : theBookLists.availableBooks) {
             books += bookDetails.toString();

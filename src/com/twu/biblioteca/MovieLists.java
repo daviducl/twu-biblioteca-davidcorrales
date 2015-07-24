@@ -6,13 +6,13 @@ import java.util.ArrayList;
  * Created by mcorrales on 7/23/15.
  */
 public class MovieLists {
-    ArrayList<MovieDetails> allMovies = new ArrayList<MovieDetails>();
-    ArrayList<MovieDetails> checkedOutMovies = new ArrayList<MovieDetails>();
-    ArrayList<MovieDetails> availableMovies = new ArrayList<MovieDetails>();
+    ArrayList<Movie> allMovies = new ArrayList<Movie>();
+    ArrayList<Movie> checkedOutMovies = new ArrayList<Movie>();
+    ArrayList<Movie> availableMovies = new ArrayList<Movie>();
 
     public MovieLists() {
-        MovieDetails angelsMovie = new MovieDetails("Angels and Demons", "Dan Brown", "2009", "4");
-        MovieDetails looperMovie = new MovieDetails("Looper", "Rian Johnson", "2012", "3");
+        Movie angelsMovie = new Movie("Angels and Demons", "Dan Brown", "2009", "4");
+        Movie looperMovie = new Movie("Looper", "Rian Johnson", "2012", "3");
         allMovies.add(angelsMovie);
         allMovies.add(looperMovie);
         availableMovies = allMovies;
@@ -38,8 +38,8 @@ public class MovieLists {
         }
     }
 
-    public boolean checkIfMovieOnList(ArrayList<MovieDetails> theList, String aTitle){
-        for (MovieDetails Movie : theList) {
+    public boolean checkIfMovieOnList(ArrayList<Movie> theList, String aTitle){
+        for (com.twu.biblioteca.Movie Movie : theList) {
             if (Movie.getMovieTitle().equals(aTitle)) {
                 return true;
             }
@@ -47,8 +47,8 @@ public class MovieLists {
         return false;
     }
 
-    public MovieDetails getMovieByTitle(String aTitle) {
-        for (MovieDetails Movie : allMovies) {
+    public Movie getMovieByTitle(String aTitle) {
+        for (com.twu.biblioteca.Movie Movie : allMovies) {
             if (Movie.getMovieTitle().equals(aTitle)) {
                 return Movie;
             }

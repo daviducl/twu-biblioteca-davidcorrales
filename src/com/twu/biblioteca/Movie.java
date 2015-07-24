@@ -3,13 +3,13 @@ package com.twu.biblioteca;
 /**
  * Created by mcorrales on 7/23/15.
  */
-public class MovieDetails {
+public class Movie {
     private String movieTitle;
     private String movieDirector;
     private String movieYear;
     private String movieRating;
 
-    public MovieDetails(String aTitle, String aDirector, String aYear, String aRating) {
+    public Movie(String aTitle, String aDirector, String aYear, String aRating) {
         movieTitle = aTitle;
         movieDirector = aDirector;
         movieYear = aYear;
