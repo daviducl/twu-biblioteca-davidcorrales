@@ -8,9 +8,9 @@ public class UserSignInItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
-    public boolean userActions(User user) {
+    public String userActions(User user) {
         String theCard = InputReader.readString("Card Number? ");
         String thePass = InputReader.readString("Password? ");
-        return user.authenticateUser(theCard, thePass);
+        return (user.authenticateUser(theCard, thePass) ? "True" : "False");
     }
 }

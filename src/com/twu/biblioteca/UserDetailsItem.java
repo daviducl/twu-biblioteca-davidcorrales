@@ -8,9 +8,8 @@ public class UserDetailsItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
-    public boolean userActions(User user) {
-        user.toString();
-        return true;
+    public String userActions(User user) {
+        return user.toString();
     }
 
     public String toString() {

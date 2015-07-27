@@ -20,5 +20,5 @@ public class AppMenuItem {
         return "";
     }
 
-    public boolean userActions(User user) { return false; }
+    public String userActions(User user) { return ""; }
 }

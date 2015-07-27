@@ -35,12 +35,13 @@ public class BibliotecaApp {
         int mainMenuSelection = InputReader.readInteger("Select an option, please: ");
         while (mainMenuSelection != 0) {
             if (mainMenuSelection == 2) {
-                if (theMainMenu.get(mainMenuSelection).userActions(user)) {
+                if (theMainMenu.get(mainMenuSelection).userActions(user).equals("True")) {
                     System.out.println("Successful Login: Welcome " + user.getName());
                     displayTheMenu(theUserMenu);
                     int userMenuSelection = InputReader.readInteger("Select an option, please: ");
                     while (userMenuSelection != 0) {
-                        System.out.print(userMenuSelector(theUserMenu, userMenuSelection, user));
+                        System.out.print(userMenuSelector(theUserMenu, userMenuSelection, theLists, user));
+                        userMenuSelection = InputReader.readInteger("Select an option, please: ");
                     }
                 }
             }
@@ -50,12 +51,14 @@ public class BibliotecaApp {
         System.out.print(theMainMenu.get(theMainMenu.indexOf(quitApp)).menuActions(theLists));
     }
 
-    private static boolean userMenuSelector(ArrayList<AppMenuItem> theUserMenu, int userMenuSelection, User user) {
+    private static String userMenuSelector(ArrayList<AppMenuItem> theUserMenu, int userMenuSelection, ItemLists theLists, User user) {
         if ((userMenuSelection > theUserMenu.size() - 1 || (userMenuSelection < 0))) {
-            System.out.print("Select a valid option!\n");
-            return false; }
-        return theUserMenu.get(userMenuSelection).userActions(user);
-        //TODO: switch main/user menu logic
+            return "Select a valid option!\n";
+        } else if (userMenuSelection == 6){
+            return theUserMenu.get(userMenuSelection).userActions(user);
+        } else {
+            return theUserMenu.get(userMenuSelection).menuActions(theLists);
+        }
     }
 
     public static String mainMenuSelector(ArrayList<AppMenuItem> theMenu, int menuSelection, ItemLists theLists) {
