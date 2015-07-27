@@ -6,29 +6,31 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         ItemLists theLists = new ItemLists();
-        ArrayList<AppMenuItem> theMenu = new ArrayList<AppMenuItem>();
-        AppMenuItem listBooks = new ListBooksItem("1", "List Books");
+        ArrayList<AppMenuItem> theMainMenu = new ArrayList<AppMenuItem>();
+        ArrayList<AppMenuItem> theUserMenu = new ArrayList<AppMenuItem>();
         AppMenuItem quitApp = new QuitMenuItem("0", "Quit");
+        AppMenuItem listBooks = new ListBooksItem("1", "List Books");
+        AppMenuItem userSignIn = new UserSignInItem("2", "Sign in to the Library");
+        AppMenuItem userSignOut = new UserSignOutItem("1", "Sign out");
         AppMenuItem checkOutBook = new CheckOutBookItem("2", "Checkout Book");
         AppMenuItem checkInBook = new CheckInBookItem("3", "Check In Book");
         AppMenuItem listMovies = new ListMoviesItem("4", "List Movies");
         AppMenuItem checkOutMovie = new CheckOutMovieItem("5", "Checkout Movie");
-        theMenu.add(quitApp);
-        theMenu.add(listBooks);
-        theMenu.add(checkOutBook);
-        theMenu.add(checkInBook);
-        theMenu.add(listMovies);
-        theMenu.add(checkOutMovie);
+        theMainMenu.add(quitApp);
+        theMainMenu.add(listBooks);
+        theMainMenu.add(checkOutBook);
+        theMainMenu.add(checkInBook);
+        theMainMenu.add(listMovies);
+        theMainMenu.add(checkOutMovie);
 
-        System.out.print(theLists.allMovies.get(0).toString());
         System.out.println(displayMenuGreeting());
-        displayTheMenu(theMenu);
+        displayTheMenu(theMainMenu);
         int menuSelection = InputReader.readInteger("Select an option, please: ");
         while (menuSelection != 0) {
-            System.out.print(menuSelector(theMenu, menuSelection, theLists));
+            System.out.print(menuSelector(theMainMenu, menuSelection, theLists));
             menuSelection = InputReader.readInteger("Select an option, please: ");
         }
-        System.out.print(theMenu.get(theMenu.indexOf(quitApp)).menuActions(theLists));
+        System.out.print(theMainMenu.get(theMainMenu.indexOf(quitApp)).menuActions(theLists));
     }
 
     public static String menuSelector(ArrayList<AppMenuItem> theMenu, int menuSelection, ItemLists theLists) {
