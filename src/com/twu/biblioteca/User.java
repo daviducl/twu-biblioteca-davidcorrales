@@ -28,8 +28,8 @@ public class User {
         return toReturn;
     }
 
-    public boolean authenticateUser(String theUser, String thePassword) {
-        return cardNumber == theUser && password == thePassword;
+    public boolean authenticateUser(String theCard, String thePassword) {
+        return cardNumber.equals(theCard) && password.equals(thePassword);
     }
 
     public boolean setCardNumber(String aNumber) {
@@ -38,5 +38,9 @@ public class User {
             return true;
         }
         return false;
+    }
+
+    public String getName() {
+        return name;
     }
 }
