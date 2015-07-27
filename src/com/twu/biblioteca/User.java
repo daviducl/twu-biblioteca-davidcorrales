@@ -32,12 +32,8 @@ public class User {
         return cardNumber == theUser && password == thePassword;
     }
 
-    public String getCardNumber() {
-        return cardNumber;
-    }
-
     public boolean setCardNumber(String aNumber) {
-        if (cardNumber.matches(passRegex)) {
+        if (aNumber.matches(passRegex)) {
             cardNumber = aNumber;
             return true;
         }

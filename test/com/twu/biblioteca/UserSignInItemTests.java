@@ -3,9 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by mcorrales on 7/26/15.
@@ -26,11 +24,17 @@ public class UserSignInItemTests {
         assertEquals("User/Pass don't match", true, actual);
     }
 
+    @Test
     public void testCardNumberWithWrongFormatCantBeSet() {
         String wrongCard = "23094";
 
         assertFalse("Card Number format is incorrect", user.setCardNumber(wrongCard));
     }
 
+    @Test
+    public void testCardNumberWithRightFormatCanBeSet() {
+        String rightCard = "123-4567";
 
+        assertTrue("Card Number regex is incorrect", user.setCardNumber(rightCard));
+    }
 }
