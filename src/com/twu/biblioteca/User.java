@@ -26,4 +26,8 @@ public class User {
         toReturn += "Password: " + password + "\n";
         return toReturn;
     }
+
+    public boolean authenticateUser(String thePassword) {
+        return password == thePassword;
+    }
 }
