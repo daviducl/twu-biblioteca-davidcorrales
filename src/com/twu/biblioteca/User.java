@@ -9,6 +9,7 @@ public class User {
     private String phoneNumber;
     private String cardNumber;
     private String password;
+    private final String passRegex = "[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]";
 
     public User(String aName, String anEmail, String aNumber, String aCard, String aPassword) {
         name = aName;
@@ -29,5 +30,17 @@ public class User {
 
     public boolean authenticateUser(String theUser, String thePassword) {
         return cardNumber == theUser && password == thePassword;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public boolean setCardNumber(String aNumber) {
+        if (cardNumber.matches(passRegex)) {
+            cardNumber = aNumber;
+            return true;
+        }
+        return false;
     }
 }

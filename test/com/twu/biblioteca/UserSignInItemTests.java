@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -24,4 +25,12 @@ public class UserSignInItemTests {
 
         assertEquals("User/Pass don't match", true, actual);
     }
+
+    public void testCardNumberWithWrongFormatCantBeSet() {
+        String wrongCard = "23094";
+
+        assertFalse("Card Number format is incorrect", user.setCardNumber(wrongCard));
+    }
+
+
 }
