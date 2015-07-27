@@ -5,35 +5,55 @@ import java.util.ArrayList;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
+        User user = new User("Jon Doe", "jon@doe.com", "123-4567", "765-4321", "password");
         ItemLists theLists = new ItemLists();
         ArrayList<AppMenuItem> theMainMenu = new ArrayList<AppMenuItem>();
         ArrayList<AppMenuItem> theUserMenu = new ArrayList<AppMenuItem>();
         AppMenuItem quitApp = new QuitMenuItem("0", "Quit");
         AppMenuItem listBooks = new ListBooksItem("1", "List Books");
         AppMenuItem userSignIn = new UserSignInItem("2", "Sign in to the Library");
-        AppMenuItem userSignOut = new UserSignOutItem("1", "Sign out");
         AppMenuItem checkOutBook = new CheckOutBookItem("2", "Checkout Book");
         AppMenuItem checkInBook = new CheckInBookItem("3", "Check In Book");
         AppMenuItem listMovies = new ListMoviesItem("4", "List Movies");
         AppMenuItem checkOutMovie = new CheckOutMovieItem("5", "Checkout Movie");
+        AppMenuItem userDetails = new UserDetailsItem("6", "Display User Details");
+
         theMainMenu.add(quitApp);
         theMainMenu.add(listBooks);
-        theMainMenu.add(checkOutBook);
-        theMainMenu.add(checkInBook);
-        theMainMenu.add(listMovies);
-        theMainMenu.add(checkOutMovie);
+        theMainMenu.add(userSignIn);
+
+        theUserMenu.add(quitApp);
+        theUserMenu.add(listBooks);
+        theUserMenu.add(checkOutBook);
+        theUserMenu.add(checkInBook);
+        theUserMenu.add(listMovies);
+        theUserMenu.add(checkOutMovie);
+        theUserMenu.add(userDetails);
 
         System.out.println(displayMenuGreeting());
         displayTheMenu(theMainMenu);
-        int menuSelection = InputReader.readInteger("Select an option, please: ");
-        while (menuSelection != 0) {
-            System.out.print(menuSelector(theMainMenu, menuSelection, theLists));
-            menuSelection = InputReader.readInteger("Select an option, please: ");
+        int mainMenuSelection = InputReader.readInteger("Select an option, please: ");
+        while (mainMenuSelection != 0) {
+            System.out.print(mainMenuSelector(theMainMenu, mainMenuSelection, theLists));
+            if (mainMenuSelection == 1) {
+                if (theMainMenu.get(mainMenuSelection).userActions(user)) {
+                    int userMenuSelection = InputReader.readInteger("Select an option, please: ");
+                    while (userMenuSelection != 0) {
+                        System.out.print(userMenuSelector(theUserMenu, userMenuSelection, user);
+                    }
+                }
+            }
+            mainMenuSelection = InputReader.readInteger("Select an option, please: ");
         }
         System.out.print(theMainMenu.get(theMainMenu.indexOf(quitApp)).menuActions(theLists));
     }
 
-    public static String menuSelector(ArrayList<AppMenuItem> theMenu, int menuSelection, ItemLists theLists) {
+    private static String userMenuSelector(ArrayList<AppMenuItem> theUserMenu, int userMenuSelection, User user) {
+        if ((userMenuSelection > theUserMenu.size() - 1 || (userMenuSelection < 0))) { return "Select a valid option!\n"; }
+        return theUserMenu.get(userMenuSelection).userActions(user);
+    }
+
+    public static String mainMenuSelector(ArrayList<AppMenuItem> theMenu, int menuSelection, ItemLists theLists) {
         if ((menuSelection > theMenu.size() - 1 || (menuSelection < 0))) { return "Select a valid option!\n"; }
         return theMenu.get(menuSelection).menuActions(theLists);
     }

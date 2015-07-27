@@ -57,7 +57,7 @@ public class ExampleTest {
         AppMenuItem theItem = new AppMenuItem("1", "");
         theMenu.add(theItem);
 
-        assertEquals("Invalid selection not working", "Select a valid option!\n", biblioteca.menuSelector(theMenu, 2, theLists));
+        assertEquals("Invalid selection not working", "Select a valid option!\n", biblioteca.mainMenuSelector(theMenu, 2, theLists));
     }
 
     @Test
