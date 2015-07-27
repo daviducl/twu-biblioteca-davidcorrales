@@ -27,7 +27,7 @@ public class User {
         return toReturn;
     }
 
-    public boolean authenticateUser(String thePassword) {
-        return password == thePassword;
+    public boolean authenticateUser(String theUser, String thePassword) {
+        return cardNumber == theUser && password == thePassword;
     }
 }
