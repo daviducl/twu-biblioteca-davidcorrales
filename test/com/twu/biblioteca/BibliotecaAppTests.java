@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
-public class ExampleTest {
+public class BibliotecaAppTests {
 
     private ItemLists theLists;
     private BibliotecaApp biblioteca;
@@ -21,7 +21,7 @@ public class ExampleTest {
     }
 
     @Test
-    public void mainGreetingDisplays() {
+    public void testMainGreetingDisplays() {
         assertEquals("Menu not displayed properly", "Welcome to the Biblioteca\n", biblioteca.displayMenuGreeting());
     }
 
