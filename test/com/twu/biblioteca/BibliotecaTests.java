@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import org.junit.Before;
 import org.junit.Test;
-import sun.swing.BakedArrayList;
 
 import java.util.ArrayList;
 
@@ -14,31 +13,31 @@ import static org.junit.Assert.assertEquals;
  */
 public class BibliotecaTests {
 
-    private ArrayList<Book> books;
+    private MockDatabase mockDatabase;
     private Biblioteca biblioteca;
 
     @Before
     public void setUp() throws Exception {
-        books = new ArrayList<Book>();
-        biblioteca = new Biblioteca(books);
+        mockDatabase = new MockDatabase();
+        biblioteca = new Biblioteca(mockDatabase);
     }
 
     @Test
     public void testShouldHaveAListOfBooks() throws Exception {
         Book aBook = new Book("", "", "2013");
-        books.add(aBook);
+        mockDatabase.addBook(aBook);
 
         ArrayList<Book> bibliotecaBooks = biblioteca.getBookList();
 
-        assertArrayEquals("No list of books available", books.toArray(), bibliotecaBooks.toArray());
+        assertArrayEquals("No book list available", mockDatabase.getBooks().toArray(), bibliotecaBooks.toArray());
     }
 
     @Test
     public void testShouldAllowToCheckoutBook() throws Exception {
         Book aBook = new Book("Harry Potter", "JK Rowling", "2013");
         Book anotherBook = new Book("Harry Potter 2", "JK Rowling", "2013");
-        books.add(aBook);
-        books.add(anotherBook);
+        mockDatabase.addBook(aBook);
+        mockDatabase.addBook(anotherBook);
 
         biblioteca.checkoutBook("Harry Potter");
         ArrayList<Book> bookList = biblioteca.getBookList();
@@ -50,8 +49,8 @@ public class BibliotecaTests {
     public void testReturnsCheckedOutBook() {
         Book aBook = new Book("Harry Potter", "JK Rowling", "2013");
         Book anotherBook = new Book("Harry Potter 2", "JK Rowling", "2013");
-        books.add(aBook);
-        books.add(anotherBook);
+        mockDatabase.addBook(aBook);
+        mockDatabase.addBook(anotherBook);
 
         Book actual = biblioteca.checkoutBook("Harry Potter 2");
 
@@ -63,9 +62,9 @@ public class BibliotecaTests {
         Book harry1 = new Book("Harry Potter 1", "JK Rowling", "2013");
         Book harry2 = new Book("Harry Potter 2", "JK Rowling", "2013");
         Book harry3 = new Book("Harry Potter 3", "JK Rowling", "2013");
-        books.add(harry1);
-        books.add(harry2);
-        books.add(harry3);
+        mockDatabase.addBook(harry1);
+        mockDatabase.addBook(harry2);
+        mockDatabase.addBook(harry3);
         ArrayList<Book> expectedBooks = new ArrayList<Book>();
         expectedBooks.add(harry1);
         expectedBooks.add(harry3);

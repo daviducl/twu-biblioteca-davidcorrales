@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class AppUserInterface {
 
-    private Biblioteca biblioteca = new Biblioteca();
+    private MockDatabase mockDatabase = new MockDatabase();
+    private Biblioteca biblioteca = new Biblioteca(mockDatabase);
     public static void main(String[] args) {
         System.out.print(displayMenuGreeting());
         /*User user = new User("Jon Doe", "jon@doe.com", "123-4567", "765-4321", "password");

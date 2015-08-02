@@ -7,28 +7,18 @@ import java.util.ArrayList;
  */
 public class Biblioteca {
 
-    private ArrayList<Book> books;
+    private MockDatabase mockDatabase;
 
-    public Biblioteca(ArrayList<Book> books) {
-        this.books = books;
+    public Biblioteca(MockDatabase mockDatabase) {
+        this.mockDatabase = mockDatabase;
     }
 
     public ArrayList<Book> getBookList() {
-        return this.books;
+        return this.mockDatabase.getBooks();
     }
 
     public Book checkoutBook(String bookTitle) {
-        Book book = findBook(bookTitle);
-        books.remove(book);
+        Book book = mockDatabase.findAndRemove(bookTitle);
         return book;
-    }
-
-    private Book findBook(String bookTitle) {
-        for (Book book : this.books) {
-            if (book.getBookTitle().equals(bookTitle)) {
-                return book;
-            }
-        }
-        return null;
     }
 }
