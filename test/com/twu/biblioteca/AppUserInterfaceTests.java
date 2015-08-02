@@ -7,22 +7,21 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 
-public class BibliotecaAppTests {
+public class AppUserInterfaceTests {
 
     private ItemLists theLists;
-    private BibliotecaApp biblioteca;
+    private AppUserInterface bibliotecaApp;
     
     @Before
     public void setUp() {
         theLists = new ItemLists();
-        biblioteca = new BibliotecaApp();
+        bibliotecaApp = new AppUserInterface();
     }
 
     @Test
     public void testMainGreetingDisplays() {
-        assertEquals("Menu not displayed properly", "Welcome to the Biblioteca\n", biblioteca.displayMenuGreeting());
+        assertEquals("Menu not displayed properly", "Welcome to the Biblioteca\n", bibliotecaApp.displayMenuGreeting());
     }
 
     @Test
@@ -57,7 +56,7 @@ public class BibliotecaAppTests {
         AppMenuItem theItem = new AppMenuItem("1", "");
         theMenu.add(theItem);
 
-        assertEquals("Invalid selection not working", "Select a valid option!\n", biblioteca.mainMenuSelector(theMenu, 2, theLists));
+        assertEquals("Invalid selection not working", "Select a valid option!\n", bibliotecaApp.mainMenuSelector(theMenu, 2, theLists));
     }
 
     @Test

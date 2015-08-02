@@ -2,10 +2,12 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class BibliotecaApp {
+public class AppUserInterface {
 
+    private Biblioteca biblioteca = new Biblioteca();
     public static void main(String[] args) {
-        User user = new User("Jon Doe", "jon@doe.com", "123-4567", "765-4321", "password");
+        System.out.print(displayMenuGreeting());
+        /*User user = new User("Jon Doe", "jon@doe.com", "123-4567", "765-4321", "password");
         ItemLists theLists = new ItemLists();
         ArrayList<AppMenuItem> theMainMenu = new ArrayList<AppMenuItem>();
         ArrayList<AppMenuItem> theUserMenu = new ArrayList<AppMenuItem>();
@@ -48,7 +50,7 @@ public class BibliotecaApp {
             System.out.print(mainMenuSelector(theMainMenu, mainMenuSelection, theLists));
             mainMenuSelection = InputReader.readInteger("Select an option, please: ");
         }
-        System.out.print(theMainMenu.get(theMainMenu.indexOf(quitApp)).menuActions(theLists));
+        System.out.print(theMainMenu.get(theMainMenu.indexOf(quitApp)).menuActions(theLists));*/
     }
 
     private static String userMenuSelector(ArrayList<AppMenuItem> theUserMenu, int userMenuSelection, ItemLists theLists, User user) {
