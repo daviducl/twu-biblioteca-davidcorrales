@@ -8,6 +8,13 @@ import java.util.ArrayList;
 public class MockDatabase {
     private ArrayList<Book> books = new ArrayList<Book>();
 
+    public MockDatabase() {
+        Book infernoBook = new Book("Inferno", "Dan Brown", "2013");
+        Book vinciBook = new Book("The Da Vinci Code", "Dan Brown", "2013");
+        books.add(infernoBook);
+        books.add(vinciBook);
+        //availableBooks = allBooks;
+    }
     public Book findAndRemove(String bookTitle) {
         Book book = findBook(bookTitle);
         books.remove(book);
@@ -32,7 +39,7 @@ public class MockDatabase {
     }
 
     public String printBookList() {
-        String bookList = "";
+        String bookList = "These are our books\n";
         for (Book book : books) {
             bookList += book.toString();
         }
