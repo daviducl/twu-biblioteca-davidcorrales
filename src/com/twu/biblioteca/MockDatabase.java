@@ -30,4 +30,12 @@ public class MockDatabase {
     public ArrayList<Book> getBooks() {
         return books;
     }
+
+    public String printBookList() {
+        String bookList = "";
+        for (Book book : books) {
+            bookList += book.toString();
+        }
+        return bookList;
+    }
 }

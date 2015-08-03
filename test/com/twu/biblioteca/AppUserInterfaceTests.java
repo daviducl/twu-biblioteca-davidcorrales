@@ -11,28 +11,26 @@ import static org.junit.Assert.assertFalse;
 public class AppUserInterfaceTests {
 
     private ItemLists theLists;
-    private AppUserInterface bibliotecaApp;
-    
+    private AppUserInterface appUserInterface;
+    private MockDatabase mockDatabase;
+
     @Before
     public void setUp() {
         theLists = new ItemLists();
-        bibliotecaApp = new AppUserInterface();
+        appUserInterface = new AppUserInterface();
+        mockDatabase = new MockDatabase();
     }
 
     @Test
     public void testMainGreetingDisplays() {
-        assertEquals("Menu not displayed properly", "Welcome to the Biblioteca\n", bibliotecaApp.displayMenuGreeting());
+        assertEquals("Menu not displayed properly", "Welcome to the Biblioteca\n", appUserInterface.displayMenuGreeting());
     }
 
     @Test
     public void bookListDisplays() {
-        ListBooksItem listBooksItem = new ListBooksItem("", "");
-        String test = "These are our books:\n";
-        for (Book theBook : theLists.allBooks) {
-            test += theBook.toString();
-        }
+        String bookListOutput = mockDatabase.printBookList();
 
-        assertEquals("Books not displaying properly", test, listBooksItem.displayBookList(theLists));
+        assertEquals("Books not displaying properly", bookListOutput, appUserInterface.displayBookList(mockDatabase));
     }
 
     @Test
@@ -56,7 +54,7 @@ public class AppUserInterfaceTests {
         AppMenuItem theItem = new AppMenuItem("1", "");
         theMenu.add(theItem);
 
-        assertEquals("Invalid selection not working", "Select a valid option!\n", bibliotecaApp.mainMenuSelector(theMenu, 2, theLists));
+        assertEquals("Invalid selection not working", "Select a valid option!\n", appUserInterface.mainMenuSelector(theMenu, 2, theLists));
     }
 
     @Test

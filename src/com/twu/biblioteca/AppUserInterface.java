@@ -4,10 +4,13 @@ import java.util.ArrayList;
 
 public class AppUserInterface {
 
-    private MockDatabase mockDatabase = new MockDatabase();
-    private Biblioteca biblioteca = new Biblioteca(mockDatabase);
     public static void main(String[] args) {
+        MockDatabase mockDatabase = new MockDatabase();
+        Biblioteca biblioteca = new Biblioteca(mockDatabase);
+
         System.out.print(displayMenuGreeting());
+        System.out.print(displayBookList(mockDatabase));
+
         /*User user = new User("Jon Doe", "jon@doe.com", "123-4567", "765-4321", "password");
         ItemLists theLists = new ItemLists();
         ArrayList<AppMenuItem> theMainMenu = new ArrayList<AppMenuItem>();
@@ -79,4 +82,7 @@ public class AppUserInterface {
         }
     }
 
+    public static String displayBookList(MockDatabase mockDatabase) {
+        return mockDatabase.printBookList();
+    }
 }
