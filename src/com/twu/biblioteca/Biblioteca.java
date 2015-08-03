@@ -20,6 +20,10 @@ public class Biblioteca {
 
     public Book checkoutBook(String bookTitle) {
         Book book = mockDatabase.findAndRemove(bookTitle);
+        if (book == null)
+            System.out.print("We couldn't find that book");
+        else
+            System.out.print("Thank you! Enjoy the book");
         return book;
     }
 

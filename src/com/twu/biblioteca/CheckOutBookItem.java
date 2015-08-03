@@ -8,8 +8,8 @@ public class CheckOutBookItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
-    public String menuActions(Biblioteca theLists) {
-        theLists.checkoutBook(InputReader.readString("Type a title: "));
+    public String menuActions(Biblioteca biblioteca) {
+        biblioteca.checkoutBook(InputReader.readString("Type a title: "));
         return "\n";
     }
 

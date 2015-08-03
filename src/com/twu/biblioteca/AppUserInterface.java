@@ -24,19 +24,13 @@ public class AppUserInterface {
         ItemLists theLists = new ItemLists();
         ArrayList<AppMenuItem> theUserMenu = new ArrayList<AppMenuItem>();
         AppMenuItem userSignIn = new UserSignInItem("2", "Sign in to the Library");
-        AppMenuItem checkOutBook = new CheckOutBookItem("2", "Checkout Book");
         AppMenuItem checkInBook = new CheckInBookItem("3", "Check In Book");
         AppMenuItem listMovies = new ListMoviesItem("4", "List Movies");
         AppMenuItem checkOutMovie = new CheckOutMovieItem("5", "Checkout Movie");
         AppMenuItem userDetails = new UserDetailsItem("6", "Display User Details");
 
-        theMainMenu.add(quitApp);
-        theMainMenu.add(listBooks);
         theMainMenu.add(userSignIn);
 
-        theUserMenu.add(quitApp);
-        theUserMenu.add(listBooks);
-        theUserMenu.add(checkOutBook);
         theUserMenu.add(checkInBook);
         theUserMenu.add(listMovies);
         theUserMenu.add(checkOutMovie);

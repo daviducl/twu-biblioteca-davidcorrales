@@ -12,8 +12,11 @@ public class AppMenu {
     public AppMenu() {
         AppMenuItem quitApp = new QuitMenuItem("0", "Quit\n");
         AppMenuItem listBooks = new ListBooksItem("1", "List Books\n");
+        AppMenuItem checkOutBook = new CheckOutBookItem("2", "Checkout Book\n");
+
         mainMenu.add(quitApp);
         mainMenu.add(listBooks);
+        mainMenu.add(checkOutBook);
     }
 
     public void add(AppMenuItem menuItem) {
