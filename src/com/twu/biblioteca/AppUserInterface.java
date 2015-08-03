@@ -7,16 +7,16 @@ public class AppUserInterface {
     public static void main(String[] args) {
         MockDatabase mockDatabase = new MockDatabase();
         Biblioteca biblioteca = new Biblioteca(mockDatabase);
+        AppMenu appMenu = new AppMenu();
 
         System.out.print(displayMenuGreeting());
-        System.out.print(displayBookList(mockDatabase));
+        System.out.print(displayTheMenu(appMenu));
+        //System.out.print(displayBookList(mockDatabase));
 
         /*User user = new User("Jon Doe", "jon@doe.com", "123-4567", "765-4321", "password");
         ItemLists theLists = new ItemLists();
-        ArrayList<AppMenuItem> theMainMenu = new ArrayList<AppMenuItem>();
         ArrayList<AppMenuItem> theUserMenu = new ArrayList<AppMenuItem>();
         AppMenuItem quitApp = new QuitMenuItem("0", "Quit");
-        AppMenuItem listBooks = new ListBooksItem("1", "List Books");
         AppMenuItem userSignIn = new UserSignInItem("2", "Sign in to the Library");
         AppMenuItem checkOutBook = new CheckOutBookItem("2", "Checkout Book");
         AppMenuItem checkInBook = new CheckInBookItem("3", "Check In Book");
@@ -76,10 +76,12 @@ public class AppUserInterface {
         return "Welcome to the Biblioteca\n";
     }
 
-    public static void displayTheMenu(ArrayList<AppMenuItem> theMenu) {
-        for (AppMenuItem menuItem : theMenu) {
-            System.out.println(menuItem.toString());
+    public static String displayTheMenu(AppMenu theMenu) {
+        String display = "";
+        for (AppMenuItem menuItem : theMenu.getMainMenu()) {
+            display += menuItem.toString();
         }
+        return display;
     }
 
     public static String displayBookList(MockDatabase mockDatabase) {

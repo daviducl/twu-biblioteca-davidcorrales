@@ -42,9 +42,10 @@ public class AppUserInterfaceTests {
 
     @Test
     public void menuItemDisplays() {
+        AppMenu menu = new AppMenu();
         AppMenuItem menuItem = new AppMenuItem("1", "List Books");
 
-        assertEquals("Main Menu not displaying properly", "1. List Books", menuItem.toString());
+        assertEquals("Main Menu not displaying properly", menuItem.toString(), appUserInterface.displayTheMenu(menu));
     }
 
     @Test
