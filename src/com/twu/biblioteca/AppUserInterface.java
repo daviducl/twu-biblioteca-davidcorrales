@@ -24,12 +24,10 @@ public class AppUserInterface {
         ItemLists theLists = new ItemLists();
         ArrayList<AppMenuItem> theUserMenu = new ArrayList<AppMenuItem>();
         AppMenuItem userSignIn = new UserSignInItem("2", "Sign in to the Library");
-        AppMenuItem checkOutMovie = new CheckOutMovieItem("5", "Checkout Movie");
         AppMenuItem userDetails = new UserDetailsItem("6", "Display User Details");
 
         theMainMenu.add(userSignIn);
 
-        theUserMenu.add(checkOutMovie);
         theUserMenu.add(userDetails);
 
         System.out.println(displayMenuGreeting());

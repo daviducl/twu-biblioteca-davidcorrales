@@ -18,7 +18,7 @@ public class Biblioteca {
     }
 
     public Book checkoutBook(String bookTitle) {
-        Book book = mockDatabase.findAndRemove(bookTitle);
+        Book book = mockDatabase.findAndRemoveBook(bookTitle);
         if (book == null)
             System.out.print("That book is not available");
         else
@@ -26,11 +26,17 @@ public class Biblioteca {
         return book;
     }
 
-    public void checkOutMovie(String s) {
+    public Movie checkoutMovie(String movieTitle) {
+        Movie movie = mockDatabase.findAndRemoveMovie(movieTitle);
+        if (movie == null)
+            System.out.print("That movie is not available");
+        else
+            System.out.print("Thank you! Enjoy the movie");
+        return movie;
     }
 
     public void returnBook(String bookTitle) {
-        Book book = mockDatabase.findAndReturn(bookTitle);
+        Book book = mockDatabase.findAndReturnBook(bookTitle);
         if (book == null)
             System.out.print("This is not a valid book to return");
         else

@@ -15,16 +15,14 @@ public class AppMenu {
         AppMenuItem checkOutBook = new CheckOutBookItem("2", "Checkout Book\n");
         AppMenuItem returnBook = new ReturnBookItem("3", "Check In Book\n");
         AppMenuItem listMovies = new ListMoviesItem("4", "List Movies\n");
+        AppMenuItem checkoutMovie = new CheckOutMovieItem("5", "Checkout Movie\n");
 
         mainMenu.add(quitApp);
         mainMenu.add(listBooks);
         mainMenu.add(checkOutBook);
         mainMenu.add(returnBook);
         mainMenu.add(listMovies);
-    }
-
-    public void add(AppMenuItem menuItem) {
-        mainMenu.add(menuItem);
+        mainMenu.add(checkoutMovie);
     }
 
     public ArrayList<AppMenuItem> getMainMenu(){

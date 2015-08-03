@@ -24,7 +24,7 @@ public class BibliotecaTests {
     }
 
     @Test
-    public void testShouldHaveAListOfBooks() throws Exception {
+    public void testShouldHaveAListOfBooks() {
         Book aBook = new Book("", "", "2013");
         mockDatabase.addBook(aBook);
 
@@ -34,7 +34,7 @@ public class BibliotecaTests {
     }
 
     @Test
-    public void testShouldAllowToCheckoutBook() throws Exception {
+    public void testShouldAllowToCheckoutBook() {
         Book aBook = new Book("Harry Potter", "JK Rowling", "2013");
         mockDatabase.addBook(aBook);
 
@@ -76,5 +76,16 @@ public class BibliotecaTests {
         ArrayList<Book> bookList = biblioteca.getAvailableBooks();
 
         assertEquals("Book Return not allowed", 2, bookList.size());
+    }
+
+    @Test
+    public void testShouldAllowToCheckoutMovie() {
+        Movie aMovie = new Movie("Harry Potter", "JK Rowling", "2013", "5");
+        mockDatabase.addMovie(aMovie);
+
+        biblioteca.checkoutMovie("Harry Potter");
+        ArrayList<Movie> movieList = biblioteca.getAvailableMovies();
+
+        assertEquals(2, movieList.size());
     }
 }

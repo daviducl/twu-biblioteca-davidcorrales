@@ -26,7 +26,7 @@ public class MockDatabase {
         availableMovies.add(angelsMovie);
         availableMovies.add(looperMovie);
     }
-    public Book findAndRemove(String bookTitle) {
+    public Book findAndRemoveBook(String bookTitle) {
         Book book = findAvailableBook(bookTitle);
         availableBooks.remove(book);
         return book;
@@ -67,7 +67,7 @@ public class MockDatabase {
         return bookList;
     }
 
-    public Book findAndReturn(String bookTitle) {
+    public Book findAndReturnBook(String bookTitle) {
         Book book = findAllBooks(bookTitle);
         Book nullBook = findAvailableBook(bookTitle);
         if (book != null && nullBook == null)
@@ -91,5 +91,24 @@ public class MockDatabase {
 
     public ArrayList<Movie> getAvailableMovies() {
         return availableMovies;
+    }
+
+    public void addMovie(Movie aMovie) {
+        this.allMovies.add(aMovie);
+        this.availableMovies.add(aMovie);
+    }
+
+    public Movie findAndRemoveMovie(String movieTitle) {
+        Movie movie = findAvailableMovie(movieTitle);
+        availableMovies.remove(movie);
+        return movie;    }
+
+    private Movie findAvailableMovie(String movieTitle) {
+        for (Movie movie : this.availableMovies) {
+            if (movie.getMovieTitle().equals(movieTitle)) {
+                return movie;
+            }
+        }
+        return null;
     }
 }

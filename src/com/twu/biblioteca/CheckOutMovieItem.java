@@ -9,7 +9,7 @@ public class CheckOutMovieItem extends AppMenuItem {
     }
 
     public String menuActions(Biblioteca theLists) {
-        theLists.checkOutMovie(InputReader.readString("Type a title: "));
+        theLists.checkoutMovie(InputReader.readString("Type a title: "));
         return "\n";
     }
 
