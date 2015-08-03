@@ -55,12 +55,8 @@ public class AppUserInterfaceTests {
     @Test
     public void menuOptionSelectedIsInvalid() {
         AppMenu appMenu = new AppMenu();
-        ArrayList<AppMenuItem> theMenu = new ArrayList<AppMenuItem>();
 
-        AppMenuItem theItem = new AppMenuItem("1", "");
-        theMenu.add(theItem);
-
-        assertEquals("Invalid selection not working", "Select a valid option!\n", appUserInterface.menuActionsSelector(appMenu, 2, biblioteca));
+        assertEquals("Invalid selection not working", "Select a valid option!\n", appUserInterface.menuActionsSelector(appMenu, appMenu.getSize() + 1, biblioteca));
     }
 
     @Test
