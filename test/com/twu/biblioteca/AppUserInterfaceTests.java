@@ -3,8 +3,6 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -79,13 +77,9 @@ public class AppUserInterfaceTests {
 
     @Test
     public void movieListDisplays() {
-        ListMoviesItem listMoviesItem = new ListMoviesItem("", "");
-        String test = "These are our movies:\n";
-        for (Movie theMovie : biblioteca.availableMovies) {
-            test += theMovie.toString();
-        }
+        String expected = mockDatabase.printMovieList();
 
-        assertEquals("Movies not displaying properly", test, listMoviesItem.displayMovieList(biblioteca));
+        assertEquals("Movies not displaying properly", expected, appUserInterface.displayMovieList(mockDatabase));
     }
 
     @Test

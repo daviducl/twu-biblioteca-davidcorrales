@@ -8,7 +8,6 @@ import java.util.ArrayList;
 public class Biblioteca {
 
     private MockDatabase mockDatabase;
-    public Movie[] availableMovies;
 
     public Biblioteca(MockDatabase mockDatabase) {
         this.mockDatabase = mockDatabase;
@@ -27,10 +26,6 @@ public class Biblioteca {
         return book;
     }
 
-    public void checkInMovie(String s) {
-        
-    }
-
     public void checkOutMovie(String s) {
     }
 
@@ -40,5 +35,9 @@ public class Biblioteca {
             System.out.print("This is not a valid book to return");
         else
             System.out.print("Thank you for returning the book");
+    }
+
+    public ArrayList<Movie> getAvailableMovies() {
+        return this.mockDatabase.getAvailableMovies();
     }
 }

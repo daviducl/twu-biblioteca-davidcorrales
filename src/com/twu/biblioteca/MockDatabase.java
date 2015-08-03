@@ -8,14 +8,23 @@ import java.util.ArrayList;
 public class MockDatabase {
     private ArrayList<Book> allBooks = new ArrayList<Book>();
     private ArrayList<Book> availableBooks = new ArrayList<Book>();
+    private ArrayList<Movie> allMovies = new ArrayList<Movie>();
+    private ArrayList<Movie> availableMovies = new ArrayList<Movie>();
 
     public MockDatabase() {
         Book infernoBook = new Book("Inferno", "Dan Brown", "2013");
-        Book vinciBook = new Book("The Da Vinci Code", "Dan Brown", "2013");
+        Book vinciBook = new Book("The Da Vinci Code", "Dan Brown", "2009");
         allBooks.add(infernoBook);
         allBooks.add(vinciBook);
         availableBooks.add(infernoBook);
         availableBooks.add(vinciBook);
+
+        Movie angelsMovie = new Movie("Angels and Demons", "Ron Howard", "2009", "4");
+        Movie looperMovie = new Movie("Looper", "Rian Johnson", "2012", "3");
+        allMovies.add(angelsMovie);
+        allMovies.add(looperMovie);
+        availableMovies.add(angelsMovie);
+        availableMovies.add(looperMovie);
     }
     public Book findAndRemove(String bookTitle) {
         Book book = findAvailableBook(bookTitle);
@@ -58,14 +67,6 @@ public class MockDatabase {
         return bookList;
     }
 
-    public String printAvailableBooks() {
-        String bookList = "These are our books\n";
-        for (Book book : availableBooks) {
-            bookList += book.toString();
-        }
-        return bookList;
-    }
-
     public Book findAndReturn(String bookTitle) {
         Book book = findAllBooks(bookTitle);
         Book nullBook = findAvailableBook(bookTitle);
@@ -78,5 +79,17 @@ public class MockDatabase {
 
     public ArrayList<Book> getAvailableBooks() {
         return availableBooks;
+    }
+
+    public String printMovieList() {
+        String movieList = "These are our movies\n";
+        for (Movie movie : allMovies) {
+            movieList += movie.toString();
+        }
+        return movieList;
+    }
+
+    public ArrayList<Movie> getAvailableMovies() {
+        return availableMovies;
     }
 }

@@ -16,9 +16,9 @@ public class ListMoviesItem extends AppMenuItem {
         return super.toString();
     }
 
-    public static String displayMovieList(Biblioteca theLists) {
+    public static String displayMovieList(Biblioteca biblioteca) {
         String movies = "These are our movies:\n";
-        for (Movie movie : theLists.availableMovies) {
+        for (Movie movie : biblioteca.getAvailableMovies()) {
             movies += movie.toString();
         }
         return movies;

@@ -24,13 +24,11 @@ public class AppUserInterface {
         ItemLists theLists = new ItemLists();
         ArrayList<AppMenuItem> theUserMenu = new ArrayList<AppMenuItem>();
         AppMenuItem userSignIn = new UserSignInItem("2", "Sign in to the Library");
-        AppMenuItem listMovies = new ListMoviesItem("4", "List Movies");
         AppMenuItem checkOutMovie = new CheckOutMovieItem("5", "Checkout Movie");
         AppMenuItem userDetails = new UserDetailsItem("6", "Display User Details");
 
         theMainMenu.add(userSignIn);
 
-        theUserMenu.add(listMovies);
         theUserMenu.add(checkOutMovie);
         theUserMenu.add(userDetails);
 
@@ -84,5 +82,9 @@ public class AppUserInterface {
 
     public static String displayBookList(MockDatabase mockDatabase) {
         return mockDatabase.printBookList();
+    }
+
+    public String displayMovieList(MockDatabase mockDatabase) {
+        return mockDatabase.printMovieList();
     }
 }
