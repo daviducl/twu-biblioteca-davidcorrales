@@ -28,22 +28,20 @@ public class BibliotecaTests {
         Book aBook = new Book("", "", "2013");
         mockDatabase.addBook(aBook);
 
-        ArrayList<Book> bibliotecaBooks = biblioteca.getBookList();
+        ArrayList<Book> bibliotecaBooks = biblioteca.getAvailableBooks();
 
-        assertArrayEquals("No book list available", mockDatabase.getBooks().toArray(), bibliotecaBooks.toArray());
+        assertArrayEquals("No book list available", mockDatabase.getAllBooks().toArray(), bibliotecaBooks.toArray());
     }
 
     @Test
     public void testShouldAllowToCheckoutBook() throws Exception {
         Book aBook = new Book("Harry Potter", "JK Rowling", "2013");
-        Book anotherBook = new Book("Harry Potter 2", "JK Rowling", "2013");
         mockDatabase.addBook(aBook);
-        mockDatabase.addBook(anotherBook);
 
         biblioteca.checkoutBook("Harry Potter");
-        ArrayList<Book> bookList = biblioteca.getBookList();
+        ArrayList<Book> bookList = biblioteca.getAvailableBooks();
 
-        assertEquals(3, bookList.size());
+        assertEquals(2, bookList.size());
     }
 
     @Test
@@ -65,8 +63,18 @@ public class BibliotecaTests {
 
         biblioteca.checkoutBook("Harry Potter 2");
 
-        ArrayList<Book> actualBooks = biblioteca.getBookList();
+        ArrayList<Book> actualBooks = biblioteca.getAvailableBooks();
 
         assertTrue(!actualBooks.contains(harry));
+    }
+
+    @Test
+    public void testShouldAllowToReturnBook() {
+        biblioteca.checkoutBook("Inferno");
+        biblioteca.returnBook("Inferno");
+
+        ArrayList<Book> bookList = biblioteca.getAvailableBooks();
+
+        assertEquals("Book Return not allowed", 2, bookList.size());
     }
 }

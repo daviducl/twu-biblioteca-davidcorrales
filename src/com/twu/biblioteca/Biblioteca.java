@@ -14,8 +14,8 @@ public class Biblioteca {
         this.mockDatabase = mockDatabase;
     }
 
-    public ArrayList<Book> getBookList() {
-        return this.mockDatabase.getBooks();
+    public ArrayList<Book> getAvailableBooks() {
+        return this.mockDatabase.getAvailableBooks();
     }
 
     public Book checkoutBook(String bookTitle) {
@@ -32,5 +32,13 @@ public class Biblioteca {
     }
 
     public void checkOutMovie(String s) {
+    }
+
+    public void returnBook(String bookTitle) {
+        Book book = mockDatabase.findAndReturn(bookTitle);
+        if (book == null)
+            System.out.print("This is not a valid book to return");
+        else
+            System.out.print("Thank you for returning the book");
     }
 }
