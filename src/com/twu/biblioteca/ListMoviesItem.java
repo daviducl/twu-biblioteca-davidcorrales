@@ -8,7 +8,7 @@ public class ListMoviesItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
-    public String menuActions(ItemLists theLists) {
+    public String menuActions(Biblioteca theLists) {
         return displayMovieList(theLists);
     }
 
@@ -16,7 +16,7 @@ public class ListMoviesItem extends AppMenuItem {
         return super.toString();
     }
 
-    public static String displayMovieList(ItemLists theLists) {
+    public static String displayMovieList(Biblioteca theLists) {
         String movies = "These are our movies:\n";
         for (Movie movie : theLists.availableMovies) {
             movies += movie.toString();

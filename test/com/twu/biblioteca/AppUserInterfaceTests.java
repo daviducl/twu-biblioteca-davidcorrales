@@ -13,12 +13,14 @@ public class AppUserInterfaceTests {
     private ItemLists theLists;
     private AppUserInterface appUserInterface;
     private MockDatabase mockDatabase;
+    private Biblioteca biblioteca;
 
     @Before
     public void setUp() {
         theLists = new ItemLists();
         appUserInterface = new AppUserInterface();
         mockDatabase = new MockDatabase();
+        biblioteca = new Biblioteca(mockDatabase);
     }
 
     @Test
@@ -50,12 +52,13 @@ public class AppUserInterfaceTests {
 
     @Test
     public void menuOptionSelectedIsInvalid() {
+        AppMenu appMenu = new AppMenu();
         ArrayList<AppMenuItem> theMenu = new ArrayList<AppMenuItem>();
 
         AppMenuItem theItem = new AppMenuItem("1", "");
         theMenu.add(theItem);
 
-        assertEquals("Invalid selection not working", "Select a valid option!\n", appUserInterface.mainMenuSelector(theMenu, 2, theLists));
+        assertEquals("Invalid selection not working", "Select a valid option!\n", appUserInterface.menuActionsSelector(appMenu, 2, biblioteca));
     }
 
     @Test
@@ -80,11 +83,11 @@ public class AppUserInterfaceTests {
     public void movieListDisplays() {
         ListMoviesItem listMoviesItem = new ListMoviesItem("", "");
         String test = "These are our movies:\n";
-        for (Movie theMovie : theLists.allMovies) {
+        for (Movie theMovie : biblioteca.availableMovies) {
             test += theMovie.toString();
         }
 
-        assertEquals("Movies not displaying properly", test, listMoviesItem.displayMovieList(theLists));
+        assertEquals("Movies not displaying properly", test, listMoviesItem.displayMovieList(biblioteca));
     }
 
     @Test

@@ -16,7 +16,7 @@ public class AppMenuItem {
         return optionNumber + ". " + optionText;
     }
 
-    public String menuActions(ItemLists theLists) {
+    public String menuActions(Biblioteca theLists) {
         return "";
     }
 

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Biblioteca {
 
     private MockDatabase mockDatabase;
+    public Movie[] availableMovies;
 
     public Biblioteca(MockDatabase mockDatabase) {
         this.mockDatabase = mockDatabase;
@@ -20,5 +21,12 @@ public class Biblioteca {
     public Book checkoutBook(String bookTitle) {
         Book book = mockDatabase.findAndRemove(bookTitle);
         return book;
+    }
+
+    public void checkInMovie(String s) {
+        
+    }
+
+    public void checkOutMovie(String s) {
     }
 }

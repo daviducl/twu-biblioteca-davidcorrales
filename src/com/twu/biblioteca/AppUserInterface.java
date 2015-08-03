@@ -11,6 +11,12 @@ public class AppUserInterface {
 
         System.out.print(displayMenuGreeting());
         System.out.print(displayTheMenu(appMenu));
+
+        int userSelection = InputReader.readInteger("Select an option\n");
+        while (userSelection != 0) {
+            System.out.print(menuActionsSelector(appMenu, userSelection, biblioteca));
+        }
+
         //System.out.print(displayBookList(mockDatabase));
 
         /*User user = new User("Jon Doe", "jon@doe.com", "123-4567", "765-4321", "password");
@@ -51,25 +57,25 @@ public class AppUserInterface {
                     }
                 }
             }
-            System.out.print(mainMenuSelector(theMainMenu, mainMenuSelection, theLists));
+            System.out.print(menuActionsSelector(theMainMenu, mainMenuSelection, theLists));
             mainMenuSelection = InputReader.readInteger("Select an option, please: ");
         }
         System.out.print(theMainMenu.get(theMainMenu.indexOf(quitApp)).menuActions(theLists));*/
     }
 
-    private static String userMenuSelector(ArrayList<AppMenuItem> theUserMenu, int userMenuSelection, ItemLists theLists, User user) {
+    private static String userMenuSelector(ArrayList<AppMenuItem> theUserMenu, int userMenuSelection, Biblioteca biblioteca, User user) {
         if ((userMenuSelection > theUserMenu.size() - 1 || (userMenuSelection < 0))) {
             return "Select a valid option!\n";
         } else if (userMenuSelection == 6){
             return theUserMenu.get(userMenuSelection).userActions(user);
         } else {
-            return theUserMenu.get(userMenuSelection).menuActions(theLists);
+            return theUserMenu.get(userMenuSelection).menuActions(biblioteca);
         }
     }
 
-    public static String mainMenuSelector(ArrayList<AppMenuItem> theMenu, int menuSelection, ItemLists theLists) {
-        if ((menuSelection > theMenu.size() - 1 || (menuSelection < 0))) { return "Select a valid option!\n"; }
-        return theMenu.get(menuSelection).menuActions(theLists);
+    public static String menuActionsSelector(AppMenu theMenu, int menuSelection, Biblioteca biblioteca) {
+        if ((menuSelection > theMenu.getSize() - 1 || (menuSelection < 0))) { return "Select a valid option!\n"; }
+        return theMenu.get(menuSelection).menuActions(biblioteca);
     }
 
     public static String displayMenuGreeting() {

@@ -8,17 +8,17 @@ public class ListBooksItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
-    public String menuActions(ItemLists theLists) {
-        return displayBookList(theLists);
+    public String menuActions(Biblioteca biblioteca) {
+        return displayBookList(biblioteca);
     }
 
     public String toString() {
         return super.toString();
     }
 
-    public static String displayBookList(ItemLists theBookLists) {
+    public static String displayBookList(Biblioteca biblioteca) {
         String books = "These are our books:\n";
-        for (Book book : theBookLists.availableBooks) {
+        for (Book book : biblioteca.getBookList()) {
             books += book.toString();
         }
         return books;

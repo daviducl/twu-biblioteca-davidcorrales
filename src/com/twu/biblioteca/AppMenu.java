@@ -21,4 +21,12 @@ public class AppMenu {
     public ArrayList<AppMenuItem> getMainMenu(){
         return mainMenu;
     }
+
+    public int getSize() {
+        return mainMenu.size();
+    }
+
+    public AppMenuItem get(int menuSelection) {
+        return mainMenu.get(menuSelection);
+    }
 }
