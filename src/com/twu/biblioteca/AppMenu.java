@@ -10,7 +10,9 @@ public class AppMenu {
     private ArrayList<AppMenuItem> mainMenu = new ArrayList<AppMenuItem>();
 
     public AppMenu() {
-        AppMenuItem listBooks = new ListBooksItem("1", "List Books");
+        AppMenuItem quitApp = new QuitMenuItem("0", "Quit\n");
+        AppMenuItem listBooks = new ListBooksItem("1", "List Books\n");
+        mainMenu.add(quitApp);
         mainMenu.add(listBooks);
     }
 

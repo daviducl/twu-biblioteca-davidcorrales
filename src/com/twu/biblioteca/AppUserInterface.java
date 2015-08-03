@@ -14,7 +14,8 @@ public class AppUserInterface {
 
         int userSelection = InputReader.readInteger("Select an option\n");
         while (userSelection != 0) {
-            System.out.print(menuActionsSelector(appMenu, userSelection, biblioteca));
+            System.out.println(menuActionsSelector(appMenu, userSelection, biblioteca));
+            userSelection = InputReader.readInteger("Select an option\n");
         }
 
         //System.out.print(displayBookList(mockDatabase));
@@ -22,7 +23,6 @@ public class AppUserInterface {
         /*User user = new User("Jon Doe", "jon@doe.com", "123-4567", "765-4321", "password");
         ItemLists theLists = new ItemLists();
         ArrayList<AppMenuItem> theUserMenu = new ArrayList<AppMenuItem>();
-        AppMenuItem quitApp = new QuitMenuItem("0", "Quit");
         AppMenuItem userSignIn = new UserSignInItem("2", "Sign in to the Library");
         AppMenuItem checkOutBook = new CheckOutBookItem("2", "Checkout Book");
         AppMenuItem checkInBook = new CheckInBookItem("3", "Check In Book");
