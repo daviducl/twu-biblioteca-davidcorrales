@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by mcorrales on 7/23/15.
@@ -42,7 +43,7 @@ public class BibliotecaTests {
         biblioteca.checkoutBook("Harry Potter");
         ArrayList<Book> bookList = biblioteca.getBookList();
 
-        assertEquals(1, bookList.size());
+        assertEquals(3, bookList.size());
     }
 
     @Test
@@ -59,20 +60,13 @@ public class BibliotecaTests {
 
     @Test
     public void testRightBookWasCheckedOut() {
-        Book harry1 = new Book("Harry Potter 1", "JK Rowling", "2013");
-        Book harry2 = new Book("Harry Potter 2", "JK Rowling", "2013");
-        Book harry3 = new Book("Harry Potter 3", "JK Rowling", "2013");
-        mockDatabase.addBook(harry1);
-        mockDatabase.addBook(harry2);
-        mockDatabase.addBook(harry3);
-        ArrayList<Book> expectedBooks = new ArrayList<Book>();
-        expectedBooks.add(harry1);
-        expectedBooks.add(harry3);
+        Book harry = new Book("Harry Potter 2", "JK Rowling", "2013");
+        mockDatabase.addBook(harry);
 
         biblioteca.checkoutBook("Harry Potter 2");
 
         ArrayList<Book> actualBooks = biblioteca.getBookList();
 
-        assertArrayEquals(expectedBooks.toArray(), actualBooks.toArray());
+        assertTrue(!actualBooks.contains(harry));
     }
 }
