@@ -15,12 +15,14 @@ import static org.junit.Assert.assertTrue;
 public class BibliotecaTests {
 
     private MockDatabase mockDatabase;
+    private MockUsers mockUsers;
     private Biblioteca biblioteca;
 
     @Before
     public void setUp() throws Exception {
         mockDatabase = new MockDatabase();
         biblioteca = new Biblioteca(mockDatabase);
+        mockUsers = new MockUsers();
     }
 
     @Test
@@ -79,6 +81,16 @@ public class BibliotecaTests {
     }
 
     @Test
+    public void testShouldHaveAListOfMovies() {
+        Movie aMovie = new Movie("", "", "2013", "");
+        mockDatabase.addMovie(aMovie);
+
+        ArrayList<Movie> bibliotecaMovies = biblioteca.getAvailableMovies();
+
+        assertArrayEquals("No book list available", mockDatabase.getAllMovies().toArray(), bibliotecaMovies.toArray());
+    }
+
+    @Test
     public void testShouldAllowToCheckoutMovie() {
         Movie aMovie = new Movie("Harry Potter", "JK Rowling", "2013", "5");
         mockDatabase.addMovie(aMovie);
@@ -87,5 +99,25 @@ public class BibliotecaTests {
         ArrayList<Movie> movieList = biblioteca.getAvailableMovies();
 
         assertEquals(2, movieList.size());
+    }
+
+    @Test
+    public void testRightMovieWasCheckedOut() {
+        Movie harry = new Movie("Harry Potter 2", "JK Rowling", "2013", "5");
+        mockDatabase.addMovie(harry);
+
+        biblioteca.checkoutMovie("Harry Potter 2");
+
+        ArrayList<Movie> actualMovies = biblioteca.getAvailableMovies();
+
+        assertTrue(!actualMovies.contains(harry));
+    }
+
+    @Test
+    public void testShouldHaveAListOfUsers() {
+        ArrayList<User> bibliotecaUsers = biblioteca.getUserList();
+        System.out.print(bibliotecaUsers);
+        System.out.print(mockUsers.getUserList());
+        assertEquals("No user list available", mockUsers.getUserList(), bibliotecaUsers);
     }
 }

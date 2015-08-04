@@ -111,4 +111,8 @@ public class MockDatabase {
         }
         return null;
     }
+
+    public ArrayList<Movie> getAllMovies() {
+        return allMovies;
+    }
 }

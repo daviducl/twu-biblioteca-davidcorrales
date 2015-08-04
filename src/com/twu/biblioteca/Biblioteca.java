@@ -8,9 +8,11 @@ import java.util.ArrayList;
 public class Biblioteca {
 
     private MockDatabase mockDatabase;
+    private MockUsers mockUsers;
 
     public Biblioteca(MockDatabase mockDatabase) {
         this.mockDatabase = mockDatabase;
+        this.mockUsers = new MockUsers();
     }
 
     public ArrayList<Book> getAvailableBooks() {
@@ -45,5 +47,9 @@ public class Biblioteca {
 
     public ArrayList<Movie> getAvailableMovies() {
         return this.mockDatabase.getAvailableMovies();
+    }
+
+    public ArrayList<User> getUserList() {
+        return mockUsers.getUserList();
     }
 }
