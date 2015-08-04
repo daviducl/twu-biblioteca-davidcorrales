@@ -5,9 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by mcorrales on 7/23/15.
@@ -27,9 +25,6 @@ public class BibliotecaTests {
 
     @Test
     public void testShouldHaveAListOfBooks() {
-        Book aBook = new Book("", "", "2013");
-        mockDatabase.addBook(aBook);
-
         ArrayList<Book> bibliotecaBooks = biblioteca.getAvailableBooks();
 
         assertArrayEquals("No book list available", mockDatabase.getAllBooks().toArray(), bibliotecaBooks.toArray());
@@ -110,14 +105,20 @@ public class BibliotecaTests {
 
         ArrayList<Movie> actualMovies = biblioteca.getAvailableMovies();
 
-        assertTrue(!actualMovies.contains(harry));
+        assertTrue("Wrong or no movie was checked out", !actualMovies.contains(harry));
     }
 
     @Test
     public void testShouldHaveAListOfUsers() {
-        ArrayList<User> bibliotecaUsers = biblioteca.getUserList();
-        System.out.print(bibliotecaUsers);
-        System.out.print(mockUsers.getUserList());
-        assertEquals("No user list available", mockUsers.getUserList(), bibliotecaUsers);
+        String expected = biblioteca.getUserList().get(0).toString();
+        String actual = mockUsers.getUserList().get(0).toString();
+        assertEquals("No user list available", expected, actual);
+    }
+
+    @Test
+    public void testUserListShouldNotBeNull() {
+        ArrayList<User> userList = biblioteca.getUserList();
+
+        assertNotEquals("User list is null", null, userList);
     }
 }
