@@ -46,7 +46,7 @@ public class AppUserInterfaceTests {
         for (AppMenuItem menuItem : menu.getMainMenu()) {
             expected += menuItem.toString();
         }
-        assertEquals("Main Menu not displaying properly", expected, appUserInterface.displayTheMenu(menu));
+        assertEquals("Main Menu not displaying properly", expected, appUserInterface.displayTheMenu(menu.getMainMenu()));
     }
 
     @Test
@@ -85,5 +85,16 @@ public class AppUserInterfaceTests {
         biblioteca.checkoutMovie("Inferno");
 
         assertFalse("Book Checkout Unsuccessful", biblioteca.getAvailableMovies().contains(infernoMovie));
+    }
+
+
+    @Test
+    public void testShouldHaveAUserMenu() {
+        AppMenu menu = new AppMenu();
+        String expected = "";
+        for (AppMenuItem menuItem : menu.getUserMenu()) {
+            expected += menuItem.toString();
+        }
+        assertEquals("Main Menu not displaying properly", expected, appUserInterface.displayTheMenu(menu.getUserMenu()));
     }
 }

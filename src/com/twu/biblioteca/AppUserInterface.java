@@ -10,7 +10,7 @@ public class AppUserInterface {
         AppMenu appMenu = new AppMenu();
 
         System.out.print(displayMenuGreeting());
-        System.out.print(displayTheMenu(appMenu));
+        System.out.print(displayTheMenu(appMenu.getMainMenu()));
 
         int userSelection = InputReader.readInteger("Select an option\n");
         while (userSelection != 0) {
@@ -70,9 +70,9 @@ public class AppUserInterface {
         return "Welcome to the Biblioteca\n";
     }
 
-    public static String displayTheMenu(AppMenu theMenu) {
+    public static String displayTheMenu(ArrayList<AppMenuItem> theMenu) {
         String display = "";
-        for (AppMenuItem menuItem : theMenu.getMainMenu()) {
+        for (AppMenuItem menuItem : theMenu) {
             display += menuItem.toString();
         }
         return display;
