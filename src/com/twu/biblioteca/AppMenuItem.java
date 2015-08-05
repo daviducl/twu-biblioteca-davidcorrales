@@ -19,6 +19,4 @@ public class AppMenuItem {
     public String menuActions(Biblioteca theLists) {
         return "";
     }
-
-    public String userActions(User user) { return ""; }
 }

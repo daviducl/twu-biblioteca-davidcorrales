@@ -8,12 +8,6 @@ public class UserSignInItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
-    public String userActions(User user) {
-        String theCard = InputReader.readString("Card Number? ");
-        String thePass = InputReader.readString("Password? ");
-        return (user.matchCredentials(theCard, thePass) ? "True" : "False");
-    }
-
     public String menuActions(Biblioteca biblioteca) {
         String theCard = InputReader.readString("Card Number? ");
         String thePass = InputReader.readString("Password? ");

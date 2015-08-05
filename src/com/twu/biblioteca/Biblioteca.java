@@ -23,6 +23,10 @@ public class Biblioteca {
         return this.mockDatabase.getAvailableMovies();
     }
 
+    public ArrayList<User> getUserList() {
+        return mockUsers.getUserList();
+    }
+
     public Book checkoutBook(String bookTitle) {
         Book book = mockDatabase.findAndRemoveBook(bookTitle);
         return book;
@@ -36,10 +40,6 @@ public class Biblioteca {
     public Book returnBook(String bookTitle) {
         Book book = mockDatabase.findAndReturnBook(bookTitle);
         return book;
-    }
-
-    public ArrayList<User> getUserList() {
-        return mockUsers.getUserList();
     }
 
     public User authenticateUser(String userId, String password) {
