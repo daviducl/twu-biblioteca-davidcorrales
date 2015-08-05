@@ -19,6 +19,10 @@ public class Biblioteca {
         return this.mockDatabase.getAvailableBooks();
     }
 
+    public ArrayList<Movie> getAvailableMovies() {
+        return this.mockDatabase.getAvailableMovies();
+    }
+
     public Book checkoutBook(String bookTitle) {
         Book book = mockDatabase.findAndRemoveBook(bookTitle);
         return book;
@@ -26,20 +30,12 @@ public class Biblioteca {
 
     public Movie checkoutMovie(String movieTitle) {
         Movie movie = mockDatabase.findAndRemoveMovie(movieTitle);
-        if (movie == null)
-            System.out.print("That movie is not available");
-        else
-            System.out.print("Thank you! Enjoy the movie");
         return movie;
     }
 
     public Book returnBook(String bookTitle) {
         Book book = mockDatabase.findAndReturnBook(bookTitle);
         return book;
-    }
-
-    public ArrayList<Movie> getAvailableMovies() {
-        return this.mockDatabase.getAvailableMovies();
     }
 
     public ArrayList<User> getUserList() {
