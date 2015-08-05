@@ -8,9 +8,12 @@ public class CheckOutMovieItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
-    public String menuActions(Biblioteca theLists) {
-        theLists.checkoutMovie(InputReader.readString("Type a title: "));
-        return "\n";
+    public String menuActions(Biblioteca biblioteca) {
+        Movie movie = biblioteca.checkoutMovie(InputReader.readString("Type a title: "));
+        if (movie == null)
+            return "That movie is not available";
+        else
+            return "Thank you! Enjoy the movie";
     }
 
     public String toString() {

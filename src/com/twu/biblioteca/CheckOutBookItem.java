@@ -9,8 +9,11 @@ public class CheckOutBookItem extends AppMenuItem {
     }
 
     public String menuActions(Biblioteca biblioteca) {
-        biblioteca.checkoutBook(InputReader.readString("Type a title: "));
-        return "\n";
+        Book book = biblioteca.checkoutBook(InputReader.readString("Type a title: "));
+        if (book == null)
+            return "That book is not available";
+        else
+            return "Thank you! Enjoy the book";
     }
 
     public String toString() {

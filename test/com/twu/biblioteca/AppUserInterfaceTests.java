@@ -5,17 +5,16 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class AppUserInterfaceTests {
 
-    private ItemLists theLists;
     private AppUserInterface appUserInterface;
     private MockDatabase mockDatabase;
     private Biblioteca biblioteca;
 
     @Before
     public void setUp() {
-        theLists = new ItemLists();
         appUserInterface = new AppUserInterface();
         mockDatabase = new MockDatabase();
         biblioteca = new Biblioteca(mockDatabase);
@@ -59,20 +58,17 @@ public class AppUserInterfaceTests {
 
     @Test
     public void bookCheckoutSuccessful() {
-        Book vinciBook = new Book("Inferno", "Dan Brown", "2013");
+        Book vinciBook = biblioteca.checkoutBook("Inferno");
 
-        theLists.checkOutBook("Inferno");
-
-        assertFalse("Book Checkout Unsuccessful", theLists.availableBooks.contains(vinciBook));
+        assertFalse("Book Checkout Unsuccessful", biblioteca.getAvailableBooks().contains(vinciBook));
     }
 
     @Test
     public void bookReturnSuccessful() {
-        Book vinciBook = new Book("The Da Vinci Code", "Dan Brown", "2003");
+        Book vinciBook = biblioteca.checkoutBook("The Da Vinci Code");
+        biblioteca.returnBook("The Da Vinci Code");
 
-        theLists.checkInMovie("The Da Vinci Code");
-
-        assertFalse("Book Return Unsuccessful", theLists.checkedOutBooks.contains(vinciBook));
+        assertTrue("Book Return Unsuccessful", biblioteca.getAvailableBooks().contains(vinciBook));
     }
 
     @Test
@@ -84,11 +80,10 @@ public class AppUserInterfaceTests {
 
     @Test
     public void movieCheckoutSuccessful() {
-        Movie vinciBook = new Movie("Inferno", "Dan Brown", "2013", "4");
-        theLists.availableMovies.add(vinciBook);
+        Movie infernoMovie = new Movie("Inferno", "Dan Brown", "2013", "4");
 
-        theLists.checkOutMovie("Inferno");
+        biblioteca.checkoutMovie("Inferno");
 
-        assertFalse("Book Checkout Unsuccessful", theLists.availableMovies.contains(vinciBook));
+        assertFalse("Book Checkout Unsuccessful", biblioteca.getAvailableMovies().contains(infernoMovie));
     }
 }
