@@ -13,4 +13,11 @@ public class UserSignInItem extends AppMenuItem {
         String thePass = InputReader.readString("Password? ");
         return (user.matchCredentials(theCard, thePass) ? "True" : "False");
     }
+
+    public String menuActions(Biblioteca biblioteca) {
+        String theCard = InputReader.readString("Card Number? ");
+        String thePass = InputReader.readString("Password? ");
+        User user = biblioteca.authenticateUser(theCard, thePass);
+        return "Welcome " + user.getName();
+    }
 }
