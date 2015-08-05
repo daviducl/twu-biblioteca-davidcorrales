@@ -41,4 +41,8 @@ public class Biblioteca {
     public ArrayList<User> getUserList() {
         return mockUsers.getUserList();
     }
+
+    public User authenticateUser(String userId, String password) {
+        return mockUsers.authenticateUser(userId, password);
+    }
 }

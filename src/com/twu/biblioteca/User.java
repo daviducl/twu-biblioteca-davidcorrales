@@ -28,7 +28,7 @@ public class User {
         return toReturn;
     }
 
-    public boolean authenticateUser(String theCard, String thePassword) {
+    public boolean matchCredentials(String theCard, String thePassword) {
         return cardNumber.equals(theCard) && password.equals(thePassword);
     }
 

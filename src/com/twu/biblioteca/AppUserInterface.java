@@ -18,19 +18,7 @@ public class AppUserInterface {
             userSelection = InputReader.readInteger("Select an option\n");
         }
 
-        //System.out.print(displayBookList(mockDatabase));
-
-        /*User user = new User("Jon Doe", "jon@doe.com", "123-4567", "765-4321", "password");
-        ItemLists theLists = new ItemLists();
-        ArrayList<AppMenuItem> theUserMenu = new ArrayList<AppMenuItem>();
-        AppMenuItem userSignIn = new UserSignInItem("2", "Sign in to the Library");
-        AppMenuItem userDetails = new UserDetailsItem("6", "Display User Details");
-
-        theMainMenu.add(userSignIn);
-
-        theUserMenu.add(userDetails);
-
-        System.out.println(displayMenuGreeting());
+        /*
         displayTheMenu(theMainMenu);
         int mainMenuSelection = InputReader.readInteger("Select an option, please: ");
         while (mainMenuSelection != 0) {

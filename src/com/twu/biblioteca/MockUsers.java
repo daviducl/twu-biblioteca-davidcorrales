@@ -21,4 +21,13 @@ public class MockUsers {
     public void addUser(User aUser) {
         userList.add(aUser);
     }
+
+    public User authenticateUser(String userId, String password) {
+        for (User user : userList) {
+            if (user.matchCredentials(userId, password)){
+                return user;
+            }
+        }
+        return null;
+    }
 }

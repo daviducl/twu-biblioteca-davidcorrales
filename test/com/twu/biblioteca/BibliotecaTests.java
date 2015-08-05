@@ -121,4 +121,12 @@ public class BibliotecaTests {
 
         assertNotEquals("User list is null", null, userList);
     }
+
+    @Test
+    public void testShouldAuthenticateUsers() {
+        String userId = "123-4567";
+        String password = "password";
+
+        assertNotNull("User is null", biblioteca.authenticateUser(userId, password));
+    }
 }

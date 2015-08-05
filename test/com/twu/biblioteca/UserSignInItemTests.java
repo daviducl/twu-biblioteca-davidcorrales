@@ -19,7 +19,7 @@ public class UserSignInItemTests {
 
     @Test
     public void testUserPasswordAuthenticationValid() {
-        boolean actual = user.authenticateUser("765-4321", "password");
+        boolean actual = user.matchCredentials("765-4321", "password");
 
         assertEquals("User/Pass don't match", true, actual);
     }

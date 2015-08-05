@@ -80,9 +80,7 @@ public class AppUserInterfaceTests {
 
     @Test
     public void movieCheckoutSuccessful() {
-        Movie infernoMovie = new Movie("Inferno", "Dan Brown", "2013", "4");
-
-        biblioteca.checkoutMovie("Inferno");
+        Movie infernoMovie = biblioteca.checkoutMovie("Inferno");
 
         assertFalse("Book Checkout Unsuccessful", biblioteca.getAvailableMovies().contains(infernoMovie));
     }
@@ -97,4 +95,12 @@ public class AppUserInterfaceTests {
         }
         assertEquals("Main Menu not displaying properly", expected, appUserInterface.displayTheMenu(menu.getUserMenu()));
     }
+
+//    @Test
+//    public void testShouldDisplayUserMenuAfterAuthentication() {
+//        AppMenu appMenu = new AppMenu();
+//        String expected = appUserInterface.displayTheMenu(appMenu.getUserMenu());
+//        String actual = biblioteca.authenticateUser("123-4567", "password");
+//        assertEquals("User Menu doesn't display after authentication", expected, actual);
+//    }
 }

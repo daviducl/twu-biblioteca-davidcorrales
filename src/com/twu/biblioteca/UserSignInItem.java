@@ -11,6 +11,6 @@ public class UserSignInItem extends AppMenuItem {
     public String userActions(User user) {
         String theCard = InputReader.readString("Card Number? ");
         String thePass = InputReader.readString("Password? ");
-        return (user.authenticateUser(theCard, thePass) ? "True" : "False");
+        return (user.matchCredentials(theCard, thePass) ? "True" : "False");
     }
 }
