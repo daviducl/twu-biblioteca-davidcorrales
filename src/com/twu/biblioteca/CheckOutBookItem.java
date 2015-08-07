@@ -8,15 +8,12 @@ public class CheckOutBookItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
+    @Override
     public String menuActions(Biblioteca biblioteca) {
         Book book = biblioteca.checkoutBook(InputReader.readString("Type a title: "));
         if (book == null)
             return "That book is not available";
         else
             return "Thank you! Enjoy the book";
-    }
-
-    public String toString() {
-        return super.toString();
     }
 }

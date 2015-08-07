@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 /**
  * Created by mcorrales on 7/18/15.
  */
-public class AppMenuItem {
+public abstract class AppMenuItem {
     private String optionNumber;
     private String optionText;
 
@@ -16,7 +16,5 @@ public class AppMenuItem {
         return optionNumber + ". " + optionText;
     }
 
-    public String menuActions(Biblioteca theLists) {
-        return "";
-    }
+    public abstract String menuActions(Biblioteca theLists);
 }

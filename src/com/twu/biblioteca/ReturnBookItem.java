@@ -8,15 +8,12 @@ public class ReturnBookItem extends AppMenuItem {
         super(aNumber, aTitle);
     }
 
+    @Override
     public String menuActions(Biblioteca biblioteca) {
         Book book = biblioteca.returnBook(InputReader.readString("Type a title: "));
         if (book == null)
             return "This is not a valid book to return";
         else
             return "Thank you for returning the book";
-    }
-
-    public String toString() {
-        return super.toString();
     }
 }
