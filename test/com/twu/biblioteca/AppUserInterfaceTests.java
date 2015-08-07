@@ -97,10 +97,10 @@ public class AppUserInterfaceTests {
     }
 
 //    @Test
-//    public void testShouldDisplayUserMenuAfterAuthentication() {
+//    public void testShouldDisplayUserMenuIfAuthenticated() {
 //        AppMenu appMenu = new AppMenu();
 //        String expected = appUserInterface.displayTheMenu(appMenu.getUserMenu());
-//        String actual = biblioteca.authenticateUser("123-4567", "password");
+//        String actual = biblioteca.("123-4567", "password");
 //        assertEquals("User Menu doesn't display after authentication", expected, actual);
 //    }
 }

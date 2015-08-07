@@ -12,6 +12,10 @@ public class UserSignInItem extends AppMenuItem {
         String theCard = InputReader.readString("Card Number? ");
         String thePass = InputReader.readString("Password? ");
         User user = biblioteca.authenticateUser(theCard, thePass);
-        return "Welcome " + user.getName();
+        if (user == null)
+            return "Wrong username or password";
+        else
+            return "Welcome " + user.getName();
     }
 }
+su
