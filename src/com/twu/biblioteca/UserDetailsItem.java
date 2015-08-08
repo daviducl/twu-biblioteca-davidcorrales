@@ -8,11 +8,8 @@ public class UserDetailsItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
-    public String userActions(User user) {
-        return user.toString();
-    }
-
-    public String toString() {
-        return super.toString();
+    @Override
+    public String menuActions(Biblioteca theLists) {
+        return null;
     }
 }

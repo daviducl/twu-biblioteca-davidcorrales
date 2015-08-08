@@ -8,11 +8,8 @@ public class QuitMenuItem extends AppMenuItem {
         super(aNumber, theText);
     }
 
+    @Override
     public String menuActions(Biblioteca theBookLists) {
         return "Thank you for using the Biblioteca\n";
-    }
-
-    public String toString() {
-        return super.toString();
     }
 }
