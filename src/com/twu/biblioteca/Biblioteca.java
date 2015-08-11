@@ -9,6 +9,7 @@ public class Biblioteca {
 
     private MockDatabase mockDatabase;
     private MockUsers mockUsers;
+    private boolean isAuthenticated = false;
 
     public Biblioteca(MockDatabase mockDatabase) {
         this.mockDatabase = mockDatabase;
@@ -28,21 +29,26 @@ public class Biblioteca {
     }
 
     public Book checkoutBook(String bookTitle) {
-        Book book = mockDatabase.findAndRemoveBook(bookTitle);
-        return book;
+        return mockDatabase.findAndRemoveBook(bookTitle);
     }
 
     public Movie checkoutMovie(String movieTitle) {
-        Movie movie = mockDatabase.findAndRemoveMovie(movieTitle);
-        return movie;
+        return mockDatabase.findAndRemoveMovie(movieTitle);
     }
 
     public Book returnBook(String bookTitle) {
-        Book book = mockDatabase.findAndReturnBook(bookTitle);
-        return book;
+        return mockDatabase.findAndReturnBook(bookTitle);
     }
 
     public User authenticateUser(String userId, String password) {
-        return mockUsers.authenticateUser(userId, password);
+        User user = mockUsers.authenticateUser(userId, password);
+        if (user != null) {
+            isAuthenticated = true;
+        }
+        return user;
+    }
+
+    public boolean isAuthenticated() {
+        return isAuthenticated;
     }
 }

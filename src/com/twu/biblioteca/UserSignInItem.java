@@ -18,4 +18,3 @@ public class UserSignInItem extends AppMenuItem {
             return "Welcome " + user.getName();
     }
 }
-su

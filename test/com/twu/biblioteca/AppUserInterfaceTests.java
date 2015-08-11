@@ -53,7 +53,7 @@ public class AppUserInterfaceTests {
     public void menuOptionSelectedIsInvalid() {
         AppMenu appMenu = new AppMenu();
 
-        assertEquals("Invalid selection not working", "Select a valid option!\n", appUserInterface.menuActionsSelector(appMenu, appMenu.getSize() + 1, biblioteca));
+        assertEquals("Invalid selection not working", "Select a valid option!\n", appUserInterface.menuActionsSelector(appMenu.getMainMenu(), appMenu.getSize() + 1, biblioteca));
     }
 
     @Test
@@ -100,7 +100,7 @@ public class AppUserInterfaceTests {
 //    public void testShouldDisplayUserMenuIfAuthenticated() {
 //        AppMenu appMenu = new AppMenu();
 //        String expected = appUserInterface.displayTheMenu(appMenu.getUserMenu());
-//        String actual = biblioteca.("123-4567", "password");
+//        String actual = biblioteca.isAuthenticated();
 //        assertEquals("User Menu doesn't display after authentication", expected, actual);
 //    }
 }

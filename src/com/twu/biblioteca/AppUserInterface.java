@@ -14,14 +14,19 @@ public class AppUserInterface {
 
         int userSelection = InputReader.readInteger("Select an option\n");
         while (userSelection != 0) {
-            System.out.println(menuActionsSelector(appMenu, userSelection, biblioteca));
+            System.out.println(menuActionsSelector(appMenu.getMainMenu(), userSelection, biblioteca));
+            System.out.println(displayTheMenu(appMenu.getMainMenu()));
+            if (biblioteca.isAuthenticated()){
+                System.out.println(menuActionsSelector(appMenu.getUserMenu(), userSelection, biblioteca));
+                System.out.println(displayTheMenu(appMenu.getUserMenu()));
+            }
             userSelection = InputReader.readInteger("Select an option\n");
         }
         System.out.print("Thank you for using the Biblioteca\n");
     }
 
-    public static String menuActionsSelector(AppMenu theMenu, int menuSelection, Biblioteca biblioteca) {
-        if ((menuSelection > theMenu.getSize() - 1 || (menuSelection < 0))) { return "Select a valid option!\n"; }
+    public static String menuActionsSelector(ArrayList<AppMenuItem> theMenu, int menuSelection, Biblioteca biblioteca) {
+        if ((menuSelection > theMenu.size() - 1 || (menuSelection < 0))) { return "Select a valid option!\n"; }
         return theMenu.get(menuSelection).menuActions(biblioteca);
     }
 
