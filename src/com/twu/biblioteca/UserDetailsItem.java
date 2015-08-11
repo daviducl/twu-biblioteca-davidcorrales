@@ -9,7 +9,7 @@ public class UserDetailsItem extends AppMenuItem {
     }
 
     @Override
-    public String menuActions(Biblioteca theLists) {
-        return null;
+    public String menuActions(Biblioteca biblioteca) {
+        return biblioteca.getCurrentUser().toString();
     }
 }

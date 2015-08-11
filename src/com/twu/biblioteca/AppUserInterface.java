@@ -14,11 +14,12 @@ public class AppUserInterface {
 
         int userSelection = InputReader.readInteger("Select an option\n");
         while (userSelection != 0) {
-            System.out.println(menuActionsSelector(appMenu.getMainMenu(), userSelection, biblioteca));
-            System.out.println(displayTheMenu(appMenu.getMainMenu()));
             if (biblioteca.isAuthenticated()){
                 System.out.println(menuActionsSelector(appMenu.getUserMenu(), userSelection, biblioteca));
                 System.out.println(displayTheMenu(appMenu.getUserMenu()));
+            } else {
+                System.out.println(menuActionsSelector(appMenu.getMainMenu(), userSelection, biblioteca));
+                System.out.println(displayTheMenu(appMenu.getMainMenu()));
             }
             userSelection = InputReader.readInteger("Select an option\n");
         }

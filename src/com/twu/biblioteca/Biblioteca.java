@@ -10,6 +10,7 @@ public class Biblioteca {
     private MockDatabase mockDatabase;
     private MockUsers mockUsers;
     private boolean isAuthenticated = false;
+    private User currentUser;
 
     public Biblioteca(MockDatabase mockDatabase) {
         this.mockDatabase = mockDatabase;
@@ -45,10 +46,15 @@ public class Biblioteca {
         if (user != null) {
             isAuthenticated = true;
         }
-        return user;
+        currentUser = user;
+        return currentUser;
     }
 
     public boolean isAuthenticated() {
         return isAuthenticated;
+    }
+
+    public User getCurrentUser(){
+        return currentUser;
     }
 }
